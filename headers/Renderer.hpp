@@ -10,7 +10,7 @@
 
 #include "Core.hpp"
 #include "Window.hpp"
-#include "Entity.hpp"
+#include "World/Entity.hpp"
 #include "Shader.hpp"
 
 class Renderer : virtual public Window{

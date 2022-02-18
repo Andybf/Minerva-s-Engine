@@ -13,24 +13,25 @@
 
 class Window {
     
-    private:
-        
-        char* title;
-        ushort width;
-        ushort height;
-        float aspectRatio;
-        Inputs* inputs;
+private:
     
-    protected:
-        GLFWwindow* windowId;
-        
-    public:
-        
-        Window(cchar* title, ushort width, ushort height);
+    char* title;
+    ushort width;
+    ushort height;
+    float aspectRatio;
+    Inputs* inputs;
+
+protected:
+    GLFWwindow* windowId;
     
-        void initializeInput(Inputs* inputs);
+    void initializeInputSystem(Inputs* inputs);
+        
+public:
     
-        void recieveKeyPress(int buttonPressed, int actionPerformed);
-        void recieveClickPress(int buttonPressed, int actionPerformed);
-        void recieveMovement(double xpos, double ypos);
+    Window(cchar* title, ushort width, ushort height);
+    
+    void recieveKeyPress(int buttonPressed, int actionPerformed);
+    void recieveClickPress(int buttonPressed, int actionPerformed);
+    void recieveMovement(double xpos, double ypos);
+    
 };

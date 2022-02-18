@@ -32,6 +32,18 @@
 		71AF92AB27BFCE2900209F97 /* Gamepad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92A927BFCE2900209F97 /* Gamepad.cpp */; };
 		71AF92AC27BFCE2900209F97 /* Gamepad.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92AA27BFCE2900209F97 /* Gamepad.hpp */; };
 		71AF92C227C030C900209F97 /* Inputs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92C127C030C900209F97 /* Inputs.hpp */; };
+		71AF92C727C0473400209F97 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92C527C0473400209F97 /* Camera.cpp */; };
+		71AF92C827C0473400209F97 /* Camera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92C627C0473400209F97 /* Camera.hpp */; };
+		71AF92CB27C0477E00209F97 /* Projection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92C927C0477E00209F97 /* Projection.cpp */; };
+		71AF92CC27C0477E00209F97 /* Projection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92CA27C0477E00209F97 /* Projection.hpp */; };
+		71AF92CF27C047C700209F97 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92CD27C047C700209F97 /* VBO.cpp */; };
+		71AF92D027C047C700209F97 /* VBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92CE27C047C700209F97 /* VBO.hpp */; };
+		71AF92D327C047E500209F97 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92D127C047E500209F97 /* VAO.cpp */; };
+		71AF92D427C047E500209F97 /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92D227C047E500209F97 /* VAO.hpp */; };
+		71AF92D727C047FC00209F97 /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92D527C047FC00209F97 /* EBO.cpp */; };
+		71AF92D827C047FC00209F97 /* EBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92D627C047FC00209F97 /* EBO.hpp */; };
+		71AF92DD27C0482500209F97 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92DB27C0482500209F97 /* TextureLoader.cpp */; };
+		71AF92DE27C0482500209F97 /* TextureLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92DC27C0482500209F97 /* TextureLoader.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -489,6 +501,18 @@
 		71AF92A927BFCE2900209F97 /* Gamepad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Gamepad.cpp; sourceTree = "<group>"; };
 		71AF92AA27BFCE2900209F97 /* Gamepad.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Gamepad.hpp; sourceTree = "<group>"; };
 		71AF92C127C030C900209F97 /* Inputs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Inputs.hpp; sourceTree = "<group>"; };
+		71AF92C527C0473400209F97 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		71AF92C627C0473400209F97 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		71AF92C927C0477E00209F97 /* Projection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projection.cpp; sourceTree = "<group>"; };
+		71AF92CA27C0477E00209F97 /* Projection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projection.hpp; sourceTree = "<group>"; };
+		71AF92CD27C047C700209F97 /* VBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
+		71AF92CE27C047C700209F97 /* VBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
+		71AF92D127C047E500209F97 /* VAO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
+		71AF92D227C047E500209F97 /* VAO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
+		71AF92D527C047FC00209F97 /* EBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
+		71AF92D627C047FC00209F97 /* EBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EBO.hpp; sourceTree = "<group>"; };
+		71AF92DB27C0482500209F97 /* TextureLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
+		71AF92DC27C0482500209F97 /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1045,14 +1069,14 @@
 		71135B8927BED9D700B3F522 /* headers */ = {
 			isa = PBXGroup;
 			children = (
-				71AF92A027BFCD9700209F97 /* glObjects */,
+				71AF92C427C0471D00209F97 /* World */,
+				71AF92A027BFCD9700209F97 /* ObjectsGL */,
 				71AF929F27BFCD9100209F97 /* Inputs */,
 				717DED3127BF070900AE2351 /* Loaders */,
 				71135B8B27BED9D700B3F522 /* Core.hpp */,
 				71135B8A27BED9D700B3F522 /* Window.hpp */,
 				71135CBF27BEDA5E00B3F522 /* Renderer.hpp */,
 				71135CC327BEF66100B3F522 /* Shader.hpp */,
-				71135B8C27BED9D700B3F522 /* Entity.hpp */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -1060,10 +1084,10 @@
 		71135B8D27BED9D700B3F522 /* sources */ = {
 			isa = PBXGroup;
 			children = (
-				71AF929E27BFCBF600209F97 /* glObjects */,
+				71AF92C327C0470B00209F97 /* World */,
+				71AF929E27BFCBF600209F97 /* ObjectsGL */,
 				717DED3627BF210C00AE2351 /* Input */,
 				717DED2C27BF06ED00AE2351 /* Loaders */,
-				71135B8E27BED9D700B3F522 /* Entity.cpp */,
 				71135B8F27BED9D700B3F522 /* Window.cpp */,
 				71135CBE27BEDA5E00B3F522 /* Renderer.cpp */,
 				71135CC227BEF66100B3F522 /* Shader.cpp */,
@@ -1076,6 +1100,7 @@
 			children = (
 				717DED3227BF0A8400AE2351 /* FileLoader.cpp */,
 				717DED2D27BF070500AE2351 /* ShaderLoader.cpp */,
+				71AF92DB27C0482500209F97 /* TextureLoader.cpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1085,6 +1110,7 @@
 			children = (
 				717DED3327BF0A8400AE2351 /* FileLoader.hpp */,
 				717DED2E27BF070500AE2351 /* ShaderLoader.hpp */,
+				71AF92DC27C0482500209F97 /* TextureLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1099,11 +1125,14 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		71AF929E27BFCBF600209F97 /* glObjects */ = {
+		71AF929E27BFCBF600209F97 /* ObjectsGL */ = {
 			isa = PBXGroup;
 			children = (
+				71AF92D127C047E500209F97 /* VAO.cpp */,
+				71AF92CD27C047C700209F97 /* VBO.cpp */,
+				71AF92D527C047FC00209F97 /* EBO.cpp */,
 			);
-			path = glObjects;
+			path = ObjectsGL;
 			sourceTree = "<group>";
 		};
 		71AF929F27BFCD9100209F97 /* Inputs */ = {
@@ -1117,11 +1146,34 @@
 			path = Inputs;
 			sourceTree = "<group>";
 		};
-		71AF92A027BFCD9700209F97 /* glObjects */ = {
+		71AF92A027BFCD9700209F97 /* ObjectsGL */ = {
 			isa = PBXGroup;
 			children = (
+				71AF92D227C047E500209F97 /* VAO.hpp */,
+				71AF92CE27C047C700209F97 /* VBO.hpp */,
+				71AF92D627C047FC00209F97 /* EBO.hpp */,
 			);
-			path = glObjects;
+			path = ObjectsGL;
+			sourceTree = "<group>";
+		};
+		71AF92C327C0470B00209F97 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				71135B8E27BED9D700B3F522 /* Entity.cpp */,
+				71AF92C527C0473400209F97 /* Camera.cpp */,
+				71AF92C927C0477E00209F97 /* Projection.cpp */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		71AF92C427C0471D00209F97 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				71135B8C27BED9D700B3F522 /* Entity.hpp */,
+				71AF92C627C0473400209F97 /* Camera.hpp */,
+				71AF92CA27C0477E00209F97 /* Projection.hpp */,
+			);
+			path = World;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1135,15 +1187,21 @@
 				717DED3527BF0A8400AE2351 /* FileLoader.hpp in Headers */,
 				71135CBD27BEDA0500B3F522 /* Entity.hpp in Headers */,
 				71135CC527BEF66100B3F522 /* Shader.hpp in Headers */,
+				71AF92D027C047C700209F97 /* VBO.hpp in Headers */,
 				71135CC127BEDA5E00B3F522 /* Renderer.hpp in Headers */,
 				71AF92A827BFCE1300209F97 /* Mouse.hpp in Headers */,
 				71135CB927BED9F400B3F522 /* glew.h in Headers */,
 				71AF92A427BFCDD000209F97 /* Keyboard.hpp in Headers */,
 				717DED3027BF070500AE2351 /* ShaderLoader.hpp in Headers */,
 				71135CBA27BED9F700B3F522 /* glfw3.h in Headers */,
+				71AF92D427C047E500209F97 /* VAO.hpp in Headers */,
 				71135CBB27BED9FF00B3F522 /* Core.hpp in Headers */,
 				71AF92C227C030C900209F97 /* Inputs.hpp in Headers */,
+				71AF92DE27C0482500209F97 /* TextureLoader.hpp in Headers */,
+				71AF92CC27C0477E00209F97 /* Projection.hpp in Headers */,
+				71AF92D827C047FC00209F97 /* EBO.hpp in Headers */,
 				71135CBC27BEDA0100B3F522 /* Window.hpp in Headers */,
+				71AF92C827C0473400209F97 /* Camera.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,12 +1265,18 @@
 				71AF92A727BFCE1300209F97 /* Mouse.cpp in Sources */,
 				71135CC027BEDA5E00B3F522 /* Renderer.cpp in Sources */,
 				71135CB727BED9D900B3F522 /* Entity.cpp in Sources */,
+				71AF92D727C047FC00209F97 /* EBO.cpp in Sources */,
 				71135CB827BED9D900B3F522 /* Window.cpp in Sources */,
+				71AF92C727C0473400209F97 /* Camera.cpp in Sources */,
 				717DED2F27BF070500AE2351 /* ShaderLoader.cpp in Sources */,
 				71AF92AB27BFCE2900209F97 /* Gamepad.cpp in Sources */,
 				71135B9127BED9D700B3F522 /* glew.c in Sources */,
+				71AF92D327C047E500209F97 /* VAO.cpp in Sources */,
+				71AF92DD27C0482500209F97 /* TextureLoader.cpp in Sources */,
+				71AF92CB27C0477E00209F97 /* Projection.cpp in Sources */,
 				71135CC427BEF66100B3F522 /* Shader.cpp in Sources */,
 				71AF92A327BFCDD000209F97 /* Keyboard.cpp in Sources */,
+				71AF92CF27C047C700209F97 /* VBO.cpp in Sources */,
 				717DED3427BF0A8400AE2351 /* FileLoader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

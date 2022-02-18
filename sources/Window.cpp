@@ -22,7 +22,7 @@ Window::Window(cchar* title, ushort width, ushort height) {
     glewInit();
 }
 
-void Window::initializeInput(Inputs* inputs) {
+void Window::initializeInputSystem(Inputs* inputs) {
     this->inputs = inputs;
 }
 

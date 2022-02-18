@@ -19,5 +19,4 @@ void mouseMoveCallback(GLFWwindow* window, double xpos, double ypos) {
 Mouse::Mouse(GLFWwindow* windowReference){
     glfwSetMouseButtonCallback(windowReference, mouseCallback);
     glfwSetCursorPosCallback(windowReference, mouseMoveCallback);
-
 }
