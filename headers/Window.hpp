@@ -9,6 +9,7 @@
 #pragma once
 
 #include "Core.hpp"
+#include "Inputs/Inputs.hpp"
 
 class Window {
     
@@ -18,6 +19,7 @@ class Window {
         ushort width;
         ushort height;
         float aspectRatio;
+        Inputs* inputs;
     
     protected:
         GLFWwindow* windowId;
@@ -25,4 +27,10 @@ class Window {
     public:
         
         Window(cchar* title, ushort width, ushort height);
+    
+        void initializeInput(Inputs* inputs);
+    
+        void recieveKeyPress(int buttonPressed, int actionPerformed);
+        void recieveClickPress(int buttonPressed, int actionPerformed);
+        void recieveMovement(double xpos, double ypos);
 };

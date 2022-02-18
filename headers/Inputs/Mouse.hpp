@@ -11,15 +11,13 @@
 #include "../Core.hpp"
 #include "../Window.hpp"
 
-class Mouse : virtual public Window {
+class Mouse : public virtual Inputs {
     
 private:
     
 public:
     Mouse(GLFWwindow* window);
     
-    void respondInputPress(int buttonPressed, int actionPerformed);
-    
-    void handleMouseClick(GLFWwindow* window, int buttonPressed, int actionPerformed, int mods);
-    void handleMouseMovement();
+    virtual void respondClickPress(int buttonPressed, int actionPerformed) =0;
+    virtual void respondMovement(double xpos, double ypos) =0;
 };

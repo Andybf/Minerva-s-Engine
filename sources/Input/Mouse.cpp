@@ -9,23 +9,15 @@
 #include "Mouse.hpp"
 
 void mouseCallback(GLFWwindow* window, int buttonPressed, int actionPerformed, int mods) {
-    ((Window*)glfwGetWindowUserPointer(window))->respondInputPress(buttonPressed, actionPerformed);
+    ((Window*)glfwGetWindowUserPointer(window))->recieveClickPress(buttonPressed, actionPerformed);
 }
 
 void mouseMoveCallback(GLFWwindow* window, double xpos, double ypos) {
-    ((Window*)glfwGetWindowUserPointer(window))->getInput()->handleMouseMovement(xpos,ypos);
+    ((Window*)glfwGetWindowUserPointer(window))->recieveMovement(xpos, ypos);
 }
 
 Mouse::Mouse(GLFWwindow* windowReference){
     glfwSetMouseButtonCallback(windowReference, mouseCallback);
     glfwSetCursorPosCallback(windowReference, mouseMoveCallback);
 
-}
-
-void Mouse::handleMouseClick(GLFWwindow* window, int buttonPressed, int actionPerformed, int mods) {
-    
-}
-
-void Mouse::respondInputPress(int buttonPressed, int actionPerformed) {
-    
 }

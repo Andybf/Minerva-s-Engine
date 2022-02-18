@@ -9,11 +9,14 @@
 #pragma once
 
 #include "../Core.hpp"
+#include "../Window.hpp"
 
-class Keyboard {
+class Keyboard : public virtual Inputs {
     
 private:
     
 public:
+    Keyboard(GLFWwindow* window);
     
+    virtual void respondKeyPress(int buttonPressed, int actionPerformed) =0;
 };

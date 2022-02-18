@@ -31,6 +31,7 @@
 		71AF92A827BFCE1300209F97 /* Mouse.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92A627BFCE1300209F97 /* Mouse.hpp */; };
 		71AF92AB27BFCE2900209F97 /* Gamepad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92A927BFCE2900209F97 /* Gamepad.cpp */; };
 		71AF92AC27BFCE2900209F97 /* Gamepad.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92AA27BFCE2900209F97 /* Gamepad.hpp */; };
+		71AF92C227C030C900209F97 /* Inputs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92C127C030C900209F97 /* Inputs.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -487,7 +488,7 @@
 		71AF92A627BFCE1300209F97 /* Mouse.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mouse.hpp; sourceTree = "<group>"; };
 		71AF92A927BFCE2900209F97 /* Gamepad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Gamepad.cpp; sourceTree = "<group>"; };
 		71AF92AA27BFCE2900209F97 /* Gamepad.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Gamepad.hpp; sourceTree = "<group>"; };
-		71AF92AD27BFD40600209F97 /* Input.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Input.hpp; sourceTree = "<group>"; };
+		71AF92C127C030C900209F97 /* Inputs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Inputs.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1045,13 +1046,13 @@
 			isa = PBXGroup;
 			children = (
 				71AF92A027BFCD9700209F97 /* glObjects */,
-				71AF929F27BFCD9100209F97 /* Input */,
+				71AF929F27BFCD9100209F97 /* Inputs */,
 				717DED3127BF070900AE2351 /* Loaders */,
 				71135B8B27BED9D700B3F522 /* Core.hpp */,
 				71135B8A27BED9D700B3F522 /* Window.hpp */,
-				71135B8C27BED9D700B3F522 /* Entity.hpp */,
 				71135CBF27BEDA5E00B3F522 /* Renderer.hpp */,
 				71135CC327BEF66100B3F522 /* Shader.hpp */,
+				71135B8C27BED9D700B3F522 /* Entity.hpp */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -1105,15 +1106,15 @@
 			path = glObjects;
 			sourceTree = "<group>";
 		};
-		71AF929F27BFCD9100209F97 /* Input */ = {
+		71AF929F27BFCD9100209F97 /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
-				71AF92AD27BFD40600209F97 /* Input.hpp */,
+				71AF92C127C030C900209F97 /* Inputs.hpp */,
 				71AF92A227BFCDD000209F97 /* Keyboard.hpp */,
 				71AF92A627BFCE1300209F97 /* Mouse.hpp */,
 				71AF92AA27BFCE2900209F97 /* Gamepad.hpp */,
 			);
-			path = Input;
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		71AF92A027BFCD9700209F97 /* glObjects */ = {
@@ -1141,6 +1142,7 @@
 				717DED3027BF070500AE2351 /* ShaderLoader.hpp in Headers */,
 				71135CBA27BED9F700B3F522 /* glfw3.h in Headers */,
 				71135CBB27BED9FF00B3F522 /* Core.hpp in Headers */,
+				71AF92C227C030C900209F97 /* Inputs.hpp in Headers */,
 				71135CBC27BEDA0100B3F522 /* Window.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
