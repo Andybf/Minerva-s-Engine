@@ -7,3 +7,20 @@
 //
 
 #pragma once
+
+#include "GLObject.hpp"
+#include "../World/Entity.hpp"
+
+class VBO : GLObject {
+    
+private:
+    
+public:
+    VBO();
+    
+    virtual void bind(GLuint id) override;
+    virtual void unbind() override;
+    virtual void deleteObject(GLuint id) override;
+    
+    GLuint generateNewVBO(Entity* entity);
+};

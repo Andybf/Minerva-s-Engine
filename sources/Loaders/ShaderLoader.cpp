@@ -8,7 +8,7 @@
 
 #include "ShaderLoader.hpp"
 
-ShaderLoader::ShaderLoader() : FileLoader(FileLoader::programPath) {
+ShaderLoader::ShaderLoader() : FileLoader() {
     
 }
 
@@ -51,9 +51,7 @@ GLuint ShaderLoader::compile(int shaderType, char* sourceContents) {
     GLuint shaderId = glCreateShader(shaderType);
     glShaderSource(shaderId, 1, &sourceContents, 0);
     glCompileShader(shaderId);
-    if (!check(GL_COMPILE_STATUS, shaderId)) {
-        exit(1);
-    }
+    check(GL_COMPILE_STATUS, shaderId);
     return shaderId;
 }
 
@@ -62,20 +60,18 @@ GLuint ShaderLoader::link(int vextexId, int fragmentId) {
     glAttachShader(shaderProgramId, vextexId);
     glAttachShader(shaderProgramId, fragmentId);
     glLinkProgram(shaderProgramId);
-    if ( !check(GL_LINK_STATUS,shaderProgramId) ) {
-        exit(1);
-    }
+    check(GL_LINK_STATUS,shaderProgramId);
     return shaderProgramId;
 }
 
-bool ShaderLoader::check(int status, int shaderId) {
-    int isShaderSuccessfullyCompiled = 1;
+void ShaderLoader::check(int status, int shaderId) {
+    int isShaderSuccessfullyCompiled = -1;
     glGetShaderiv(shaderId, status, &isShaderSuccessfullyCompiled);
-    if (isShaderSuccessfullyCompiled != GL_TRUE) {
+    if (!isShaderSuccessfullyCompiled) {
         char* infoLog = (char*) malloc(sizeof(char)*512);
         glGetShaderInfoLog(shaderId, 512, NULL, infoLog);
         printf("[ERROR] shaderId %d unchecked:\n%s\n",shaderId,infoLog);
         free(infoLog);
+        exit(1);
     }
-    return isShaderSuccessfullyCompiled;
 }

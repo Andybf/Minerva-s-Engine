@@ -7,3 +7,21 @@
 //
 
 #pragma once
+
+#include "GLObject.hpp"
+#include "../Core.hpp"
+
+class VAO : GLObject {
+    
+private:
+    
+public:
+    VAO();
+    
+    virtual void bind(GLuint id) override;
+    virtual void unbind() override;
+    virtual void deleteObject(GLuint id) override;
+    
+    GLuint generateNewVAO();
+    void linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, GLulong offset);
+};

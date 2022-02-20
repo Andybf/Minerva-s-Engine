@@ -8,9 +8,8 @@
 
 #include "FileLoader.hpp"
 
-FileLoader::FileLoader(char* path) {
-    discoverOperatingSystemWith(path);
-    removeExecutableNameFrom(path);
+FileLoader::FileLoader() {
+    
 }
 
 void FileLoader::discoverOperatingSystemWith(char* programPath) {
@@ -46,3 +45,9 @@ char* FileLoader::generatePathForFile(cchar* folder, cchar* filename) {
     }
     return filePath;
 }
+
+void FileLoader::formatProgramPathString(char* path) {
+    this->discoverOperatingSystemWith(path);
+    this->removeExecutableNameFrom(path);
+}
+

@@ -23,8 +23,9 @@ public:
     static char* programPath;
     static short operatingSystem;
     
-    FileLoader(char* path);
+    FileLoader();
     
     char* generatePathForFile(cchar* folder, cchar* fileName);
+    void formatProgramPathString(char* path);
     
 };

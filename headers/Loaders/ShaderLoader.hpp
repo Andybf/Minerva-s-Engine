@@ -17,7 +17,7 @@ private:
     static char* read(char* sourcePath);
     static GLuint compile(int shaderType, char* sourceContents);
     static GLuint link(int vextexId, int fragmentId);
-    static bool check(int status, int shaderId);
+    static void check(int status, int shaderId);
     
 public:
     ShaderLoader();

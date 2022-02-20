@@ -17,9 +17,18 @@ Window::Window(cchar* title, ushort width, ushort height) {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
     this->windowId = glfwCreateWindow(width, height, title, NULL, NULL);
+    this->width = width;
+    this->height = height;
+    this->title = (char*)calloc(sizeof(char*),128);
+    strcpy(this->title, title);
+    this->aspectRatio = (float) width/height;
     glfwMakeContextCurrent(this->windowId);
     glfwSetWindowUserPointer(this->windowId, this);
     glewInit();
+}
+
+float Window::getAspectRatio() {
+    return this->aspectRatio;
 }
 
 void Window::initializeInputSystem(Inputs* inputs) {
