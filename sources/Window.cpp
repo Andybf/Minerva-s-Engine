@@ -46,3 +46,7 @@ void Window::recieveClickPress(int buttonPressed, int actionPerformed) {
 void Window::recieveMovement(double xpos, double ypos) {
     this->inputs->respondMovement(xpos, ypos);
 }
+
+void Window::recieveScroll(double xpos, double ypos) {
+    this->inputs->respondScroll(xpos, ypos);
+}

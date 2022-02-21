@@ -16,7 +16,12 @@ void mouseMoveCallback(GLFWwindow* window, double xpos, double ypos) {
     ((Window*)glfwGetWindowUserPointer(window))->recieveMovement(xpos, ypos);
 }
 
+void mouseScrollCallback(GLFWwindow* window, double xpos, double ypos) {
+    ((Window*)glfwGetWindowUserPointer(window))->recieveScroll(xpos, ypos);
+}
+
 Mouse::Mouse(GLFWwindow* windowReference){
     glfwSetMouseButtonCallback(windowReference, mouseCallback);
     glfwSetCursorPosCallback(windowReference, mouseMoveCallback);
+    glfwSetScrollCallback(windowReference, mouseScrollCallback);
 }

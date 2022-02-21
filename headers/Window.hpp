@@ -35,5 +35,6 @@ public:
     void recieveKeyPress(int buttonPressed, int actionPerformed);
     void recieveClickPress(int buttonPressed, int actionPerformed);
     void recieveMovement(double xpos, double ypos);
+    void recieveScroll(double xpos, double ypos);
     
 };

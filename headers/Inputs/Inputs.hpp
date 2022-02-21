@@ -16,4 +16,5 @@ public:
     virtual void respondKeyPress(int buttonPressed, int actionPerformed) = 0;
     virtual void respondClickPress(int buttonPressed, int actionPerformed) = 0;
     virtual void respondMovement(double xpos, double ypos) =0;
+    virtual void respondScroll(double xpos, double ypos) =0;
 };

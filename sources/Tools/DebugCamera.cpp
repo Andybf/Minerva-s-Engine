@@ -39,7 +39,7 @@ void DebugCamera::handleMousePress(short buttonPressed, short actionPerformed) {
 void DebugCamera::handleMouseMovement(float x, float y) {
     if (this->actualMouseState.isRightPressed) {
         
-        this->yaw += (actualMouseState.x - x);
+        this->yaw -= (actualMouseState.x - x);
         this->pitch += (actualMouseState.y - y);
         if (this->pitch > 90.0f) {
             this->pitch = 90.0f;
@@ -47,10 +47,10 @@ void DebugCamera::handleMouseMovement(float x, float y) {
         if (this->pitch < -90.0f) {
             this->pitch = -89.99f;
         }
-        glm::vec3 front = glm::vec3(cos(glm::radians(yaw)) * cos(glm::radians(pitch)),
-                                    sin(glm::radians(pitch)),
-                                    sin(glm::radians(yaw)) * cos(glm::radians(pitch)));
-        this->camera->setOrientation(glm::normalize(front));
+        glm::vec3 cameraFocus = glm::vec3(cos(glm::radians(yaw)) * cos(glm::radians(pitch)),
+                                          sin(glm::radians(pitch)),
+                                          sin(glm::radians(yaw)) * cos(glm::radians(pitch)));
+        this->camera->setOrientation(glm::normalize(cameraFocus));
     }
     if (y != this->actualMouseState.y) {
         this->lastMouseState.x = this->actualMouseState.x;
@@ -58,4 +58,14 @@ void DebugCamera::handleMouseMovement(float x, float y) {
     }
     this->actualMouseState.x = x;
     this->actualMouseState.y = y;
+}
+
+void DebugCamera::handleMouseScroll(float x, float y) {
+    printf("x: %0.2f | y: %0.2f\n",x,y);
+    if (y > 0) {
+        this->camera->setPosition(this->camera->getPosition() + this->camera->getOrientation());
+    } else {
+        this->camera->setPosition(this->camera->getPosition() - this->camera->getOrientation());
+    }
+    
 }

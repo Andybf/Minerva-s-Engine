@@ -31,4 +31,5 @@ public:
     
     void handleMousePress(short buttonPressed, short actionPerformed);
     void handleMouseMovement(float x, float y);
+    void handleMouseScroll(float x, float y);
 };
