@@ -37,7 +37,7 @@ void Renderer::InitializeRendering() {
     glfwSetTime(0.0);
     while (!glfwWindowShouldClose(this->windowId)) {
         if (glfwGetTime() >= 1.0) {
-            printf("FPS: %hd\n",this->framesPerSecond);
+            //printf("FPS: %hd\n",this->framesPerSecond);
             this->resetFramesPerSecond();
         }
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

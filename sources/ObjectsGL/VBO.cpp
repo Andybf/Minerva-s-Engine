@@ -32,7 +32,7 @@ GLuint VBO::generateNewVBO(Entity* entity) {
     
     glGenBuffers(1, &vertexBufferObjectId);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectId);
-    glBufferData(GL_ARRAY_BUFFER, modelsSize+colorsSize+texCrdSize, NULL, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, modelsSize+colorsSize+texCrdSize, NULL, GL_DYNAMIC_DRAW);
     
     glBufferSubData(GL_ARRAY_BUFFER, 0, modelsSize, entity->model.data());
     glBufferSubData(GL_ARRAY_BUFFER, modelsSize, colorsSize, entity->colors.data());

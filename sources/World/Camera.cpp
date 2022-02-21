@@ -10,26 +10,32 @@
 
 Camera::Camera() {
     this->matrix = glm::mat4(1.0f);
-    this->upDirection = glm::vec3(0.0f, 1.0f, 0.0f);
+    this->position = glm::vec3(0.0f,0.0f,-1.0f);
     this->orientation = glm::vec3(0.0f,0.0f,-1.0f);
+    this->upAxis = glm::vec3(0.0f, 1.0f, 0.0f);
 }
 
 glm::mat4 Camera::getMatrix() {
-    return this->matrix;
+    return glm::lookAt(this->position, this->position+this->orientation, this->upAxis);
 }
 
 void Camera::setPosition(glm::vec3 position) {
-    this->matrix = glm::translate(this->matrix, position);
+    this->position = position;
 }
 glm::vec3 Camera::getPosition() {
     return this->position;
 }
 
-void Camera::setOrientation(float angle, glm::vec3 orientation) {
-    this->matrix = glm::rotate(this->matrix, glm::radians(0.5f), orientation);
-    this->orientation = glm::vec3(this->orientation.x+orientation.x, this->orientation.y+orientation.y, this->orientation.z+orientation.z);
+void Camera::setOrientation(glm::vec3 orientation) {
+    this->orientation = orientation;
+}
+glm::vec3 Camera::getOrientation() {
+    return this->orientation;
 }
 
-glm::quat Camera::getOrientation() {
-    return this->orientation;
+void Camera::setUpAxis(glm::vec3 up) {
+    this->upAxis = up;
+}
+glm::vec3 Camera::getUpAxis() {
+    return this->upAxis;
 }
