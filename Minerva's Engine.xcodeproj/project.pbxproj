@@ -1353,6 +1353,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					MI_DEBUG,
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1461,7 +1462,7 @@
 				7113563427BEA20700B3F522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		711359BD27BED57000B3F522 /* Build configuration list for PBXNativeTarget "MinervaEngine" */ = {
 			isa = XCConfigurationList;
@@ -1470,7 +1471,7 @@
 				711359BC27BED57000B3F522 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

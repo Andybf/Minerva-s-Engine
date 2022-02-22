@@ -40,7 +40,7 @@ void Renderer::InitializeRendering() {
             //printf("FPS: %hd\n",this->framesPerSecond);
             this->resetFramesPerSecond();
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        MI_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
         this->renderGameContents();
         glfwSwapBuffers(this->windowId);
         glfwPollEvents();
@@ -51,25 +51,25 @@ void Renderer::InitializeRendering() {
 
 void Renderer::drawEntityElements(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
     this->setActiveTextureId(entity->textureId);
-    glBindVertexArray(entity->vaoId);
+    MI_TEST(glBindVertexArray(entity->vaoId));
     
     this->shader->setUniformMatrix(shader->getUniformProjectionId(), projection);
     this->shader->setUniformMatrix(shader->getUniformViewId(), camera);
     this->shader->setUniformMatrix(shader->getUniformModelId(), entity->getMatrix());
     
-    glPolygonMode(GL_FRONT_AND_BACK, NULL);
-    glDrawElements(entity->modelType, (int)entity->indices.size(), GL_UNSIGNED_INT, 0);
+    MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
+    MI_TEST(glDrawElements(entity->modelType, (int)entity->indices.size(), GL_UNSIGNED_INT, 0));
 }
 
 void Renderer::drawEntityArrays(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
-    glBindVertexArray(entity->vaoId);
+    MI_TEST(glBindVertexArray(entity->vaoId));
     this->setActiveTextureId(entity->textureId);
     this->shader->setUniformMatrix(shader->getUniformProjectionId(), projection);
     this->shader->setUniformMatrix(shader->getUniformViewId(), camera);
     this->shader->setUniformMatrix(shader->getUniformModelId(), entity->getMatrix());
     
-    glPolygonMode(GL_FRONT_AND_BACK, NULL);
-    glDrawArrays(entity->modelType, 0, (float)entity->model.size()/3);
+    MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
+    MI_TEST(glDrawArrays(entity->modelType, 0, (float)entity->model.size()/3));
 }
 
 void Renderer::setActiveTextureId(GLuint textureId) {

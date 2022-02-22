@@ -19,7 +19,7 @@ Window::Window(cchar* title, ushort width, ushort height) {
     this->windowId = glfwCreateWindow(width, height, title, NULL, NULL);
     this->width = width;
     this->height = height;
-    this->title = (char*)calloc(sizeof(char*),128);
+    this->title = (char*)calloc(sizeof(char),128);
     strcpy(this->title, title);
     this->aspectRatio = (float) width/height;
     glfwMakeContextCurrent(this->windowId);
@@ -33,6 +33,12 @@ float Window::getAspectRatio() {
 
 void Window::initializeInputSystem(Inputs* inputs) {
     this->inputs = inputs;
+}
+
+void Window::checkForErrors() {
+    while (GLenum errorCode = glGetError()) {
+        printf("[ERROR][GL] code: %d \n",errorCode);
+    }
 }
 
 void Window::recieveKeyPress(int buttonPressed, int actionPerformed) {

@@ -42,7 +42,7 @@ void DebugCamera::handleMouseMovement(float x, float y) {
         this->yaw -= (actualMouseState.x - x);
         this->pitch += (actualMouseState.y - y);
         if (this->pitch > 90.0f) {
-            this->pitch = 90.0f;
+            this->pitch = 89.99f;
         }
         if (this->pitch < -90.0f) {
             this->pitch = -89.99f;
@@ -61,11 +61,9 @@ void DebugCamera::handleMouseMovement(float x, float y) {
 }
 
 void DebugCamera::handleMouseScroll(float x, float y) {
-    printf("x: %0.2f | y: %0.2f\n",x,y);
     if (y > 0) {
         this->camera->setPosition(this->camera->getPosition() + this->camera->getOrientation());
     } else {
         this->camera->setPosition(this->camera->getPosition() - this->camera->getOrientation());
     }
-    
 }

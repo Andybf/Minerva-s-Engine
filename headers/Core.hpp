@@ -111,3 +111,15 @@ typedef unsigned const char ucchar;
 #define KEY_X GLFW_KEY_X
 #define KEY_Y GLFW_KEY_Y
 #define KEY_Z GLFW_KEY_Z
+
+#ifdef MI_DEBUG
+    #define MI_TEST(glFunctionCall)\
+        while(glGetError() != GL_NO_ERROR);\
+        glFunctionCall;\
+        while (GLenum errorCode = glGetError()) {\
+            printf("[GL_ERROR] code: %d|0x%x | line: %d\n",errorCode,errorCode,__LINE__);\
+        }
+#else
+    #define MI_TEST(glFunctionCall)\
+        glFunctionCall
+#endif

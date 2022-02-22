@@ -11,6 +11,7 @@
 #include "Core.hpp"
 #include "Inputs/Inputs.hpp"
 
+
 class Window {
     
 private:
@@ -25,6 +26,7 @@ protected:
     GLFWwindow* windowId;
     
     void initializeInputSystem(Inputs* inputs);
+    void checkForErrors();
         
 public:
     
