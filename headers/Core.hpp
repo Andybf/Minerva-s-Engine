@@ -58,8 +58,12 @@
 
 typedef unsigned short ushort;
 typedef unsigned char  uchar;
-typedef const    char  cchar;
 typedef unsigned const char ucchar;
+typedef unsigned int   uint;
+typedef unsigned long  ulong;
+typedef const    char  cchar;
+typedef char byte;
+
 
 #define KEY_TAB GLFW_KEY_TAB
 #define KEY_0 GLFW_KEY_0
@@ -111,6 +115,14 @@ typedef unsigned const char ucchar;
 #define KEY_X GLFW_KEY_X
 #define KEY_Y GLFW_KEY_Y
 #define KEY_Z GLFW_KEY_Z
+
+#define MI_TEXCOORD_ST 2
+#define MI_TEXCOORD_STR 3
+#define MI_VECTORS_XY 2
+#define MI_VECTORS_XYZ 3
+#define MI_VECTORS_XYZW 4
+#define MI_COLORS_RGB 3
+#define MI_COLORS_RGBA 4
 
 #ifdef MI_DEBUG
     #define MI_TEST(glFunctionCall)\

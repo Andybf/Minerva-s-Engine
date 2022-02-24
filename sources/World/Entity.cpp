@@ -12,7 +12,19 @@ Entity::Entity() {
     this->matrix = glm::mat4(1.0f);
     this->modelType = GL_TRIANGLES;
     this->isEnabled = true;
-    this->textureId = 0;
+    this->texture = {
+        .id = 0,
+        .type = GL_TEXTURE_2D,
+        .dimensions = MI_TEXCOORD_ST
+    };
+    this->shader = {
+        .id = 0,
+        .texture = "texture0",
+        .model = "modelMatrix", .view = "viewMatrix", .projection = "projectionMatrix",
+        .position = ShaderAttribute { .name = "vtxPosition", .dimensions = MI_VECTORS_XYZ},
+        .vecColor = ShaderAttribute { .name = "vtxColor", .dimensions = MI_COLORS_RGBA},
+        .texCoord = ShaderAttribute { .name = "inTextureCoord", .dimensions = MI_TEXCOORD_ST}
+    };
 }
 
 glm::mat4 Entity::getMatrix() {

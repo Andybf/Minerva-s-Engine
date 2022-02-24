@@ -37,7 +37,7 @@ void FileLoader::removeExecutableNameFrom(char* path) {
 }
 
 char* FileLoader::generatePathForFile(cchar* folder, cchar* filename) {
-    char* filePath = (char*) calloc(sizeof(char),512);
+    char* filePath = (char*) calloc(sizeof(char),256);
     if (FileLoader::operatingSystem == OPERATING_SYSTEM_WINODWS) {
         sprintf(filePath, "%s\\%s\\%s", FileLoader::programPath,folder,filename);
     } else {

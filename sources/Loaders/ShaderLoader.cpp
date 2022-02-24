@@ -57,9 +57,9 @@ GLuint ShaderLoader::compile(int shaderType, char* sourceContents) {
 
 GLuint ShaderLoader::link(int vextexId, int fragmentId) {
     GLuint shaderProgramId = glCreateProgram();
-    glAttachShader(shaderProgramId, vextexId);
-    glAttachShader(shaderProgramId, fragmentId);
-    glLinkProgram(shaderProgramId);
+    MI_TEST(glAttachShader(shaderProgramId, vextexId));
+    MI_TEST(glAttachShader(shaderProgramId, fragmentId));
+    MI_TEST(glLinkProgram(shaderProgramId));
     check(GL_LINK_STATUS,shaderProgramId);
     return shaderProgramId;
 }

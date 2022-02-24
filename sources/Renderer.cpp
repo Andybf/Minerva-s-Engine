@@ -8,11 +8,11 @@
 
 #include "Renderer.hpp"
 
-Renderer::Renderer() :
-    shader(new Shader())
-{
+Renderer::Renderer() {
     glEnable( GL_DEPTH_TEST );
     glDepthFunc( GL_LEQUAL );
+    
+    this->shader = new Shader();
     
     this->vbo = new VBO();
     this->vao = new VAO();
@@ -50,32 +50,31 @@ void Renderer::InitializeRendering() {
 }
 
 void Renderer::drawEntityElements(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
-    this->setActiveTextureId(entity->textureId);
-    MI_TEST(glBindVertexArray(entity->vaoId));
+    this->shader->setUniformInt(glGetUniformLocation(entity->shader.id, entity->shader.texture),entity->texture.id-1);
+    MI_TEST(glActiveTexture(GL_TEXTURE0 + entity->texture.id- 1));
+    MI_TEST(glBindTexture(entity->texture.type, entity->texture.id));
     
-    this->shader->setUniformMatrix(shader->getUniformProjectionId(), projection);
-    this->shader->setUniformMatrix(shader->getUniformViewId(), camera);
-    this->shader->setUniformMatrix(shader->getUniformModelId(), entity->getMatrix());
+    MI_TEST(glBindVertexArray(entity->vaoId));
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.model), entity->getMatrix());
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.view), camera);
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.projection), projection);
     
     MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
     MI_TEST(glDrawElements(entity->modelType, (int)entity->indices.size(), GL_UNSIGNED_INT, 0));
 }
 
 void Renderer::drawEntityArrays(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
+    this->shader->setUniformInt(glGetUniformLocation(entity->shader.id, entity->shader.texture),entity->texture.id-1);
+    MI_TEST(glActiveTexture(GL_TEXTURE0 + entity->texture.id- 1));
+    MI_TEST(glBindTexture(entity->texture.type, entity->texture.id));
+    
     MI_TEST(glBindVertexArray(entity->vaoId));
-    this->setActiveTextureId(entity->textureId);
-    this->shader->setUniformMatrix(shader->getUniformProjectionId(), projection);
-    this->shader->setUniformMatrix(shader->getUniformViewId(), camera);
-    this->shader->setUniformMatrix(shader->getUniformModelId(), entity->getMatrix());
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.model), entity->getMatrix());
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.view), camera);
+    this->shader->setUniformMatrix(glGetUniformLocation(entity->shader.id,entity->shader.projection), projection);
     
     MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
-    MI_TEST(glDrawArrays(entity->modelType, 0, (float)entity->model.size()/3));
-}
-
-void Renderer::setActiveTextureId(GLuint textureId) {
-    this->shader->setUniformInt(this->shader->getUniformActiveTexture(),textureId-1);
-    glActiveTexture(GL_TEXTURE0 + textureId- 1);
-    glBindTexture(GL_TEXTURE_2D, textureId);
+    MI_TEST(glDrawArrays(entity->modelType, MI_STARTING_INDEX, (float)entity->model.size()/3));
 }
 
 void Renderer::storeEntityOnGPU(Entity* entity) {
@@ -86,15 +85,26 @@ void Renderer::storeEntityOnGPU(Entity* entity) {
     
     entity->vaoId = this->vao->generateNewVAO();
     this->vao->bind(entity->vaoId);
-    this->vao->linkAttribute(entity->vaoId, this->shader->getAttributePositionId(), MI_VECTORS_XYZ, 0);
-    this->vao->linkAttribute(entity->vaoId, this->shader->getAttributeColorId(), MI_COLORS_RGBA, modelsSize);
-    this->vao->linkAttribute(entity->vaoId, this->shader->getAttributeTextureCoordId(), MI_TEXCOORD_ST, colorsSize);
+    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->shader.id, entity->shader.position.name), entity->shader.position.dimensions, 0);
+    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->shader.id, entity->shader.vecColor.name), entity->shader.vecColor.dimensions, modelsSize);
+    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->shader.id, entity->shader.texCoord.name), entity->shader.texCoord.dimensions, colorsSize);
     
     entity->eboId = this->ebo->generateNewEBO(entity);
     
     this->vao->unbind();
     this->ebo->unbind();
     this->vbo->unbind();
+}
+
+GLuint Renderer::createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile) {
+    GLuint shaderProgramId =0;
+    this->shaderLoader = new ShaderLoader();
+    shaderProgramId = shaderLoader->load(vertexFile,fragmentFile);
+    return shaderProgramId;
+}
+
+void Renderer::useShaderProgram(int shaderId) {
+    glUseProgram(shaderId);
 }
 
 void Renderer::resetFramesPerSecond() {

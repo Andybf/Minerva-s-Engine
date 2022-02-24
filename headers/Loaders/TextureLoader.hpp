@@ -11,7 +11,7 @@
 #include "../Core.hpp"
 #include "FileLoader.hpp"
 
-#define MI_MIPMAP_LEVEL0 0
+#define MI_MIPMAP_0 0
 #define MI_BORDER_WIDTH 0
 
 class TextureLoader : virtual public FileLoader {
@@ -24,13 +24,14 @@ private:
         int colorChannels;
     } image;
     
-    void generateTextureId(GLuint* textureId);
-    void setTextureParameters();
+    void generateTextureId(GLuint* textureId, int texType);
+    void setTextureParameters(int texType);
     void checkTextureFileIsFound(Image* image, cchar* textureFileName);
     
 public:
     TextureLoader();
     
-    GLuint loadTexture(cchar* textureFilePath);
+    GLuint loadTexture2d(cchar* textureFilePath);
+    GLuint loadTextureCubemap(std::vector<cchar*> textureFaces);
     
 };
