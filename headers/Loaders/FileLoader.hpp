@@ -16,16 +16,14 @@
 class FileLoader {
     
 private:
-    void discoverOperatingSystemWith(char* programPath);
-    void removeExecutableNameFrom(char* programPath);
+    static void discoverOperatingSystemWith(char* programPath);
+    static void removeExecutableNameFrom(char* programPath);
     
 public:
     static char* programPath;
     static short operatingSystem;
-    
-    FileLoader();
-    
-    char* generatePathForFile(cchar* folder, cchar* fileName);
-    void formatProgramPathString(char* path);
+        
+    static void generatePathForFile(char* sourcePath, cchar* folder, cchar* fileName);
+    static void formatProgramPathString(char* path);
     
 };

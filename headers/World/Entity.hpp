@@ -25,27 +25,14 @@ public:
     std::vector<GLfloat> colors;
     std::vector<GLfloat> textureCoords;
 
-    struct RelatedTexture {
-        uint id;
-        uint type;
-        byte dimensions;
-    } texture;
-    
-    struct ShaderAttribute {
-        cchar* name;
-        byte dimensions;
-    };
-    
-    struct RelatedShader {
-        uint id;
-        cchar* model;
-        cchar* view;
-        cchar* projection;
-        cchar* texture;
-        struct ShaderAttribute position;
-        struct ShaderAttribute vecColor;
-        struct ShaderAttribute texCoord;
-    } shader;
+    uint relatedTextureId;
+    uint relatedShaderId;
+    struct Dimensions {
+        byte position;
+        byte color;
+        byte texCoord;
+        uint texture;
+    } dimensions;
     uchar modelType;
     bool isEnabled;
 

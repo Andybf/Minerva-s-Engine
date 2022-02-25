@@ -11,12 +11,13 @@
 #include "Core.hpp"
 #include "Window.hpp"
 #include "World/Entity.hpp"
-#include "Shader.hpp"
 #include "ObjectsGL/VBO.hpp"
 #include "ObjectsGL/VAO.hpp"
 #include "ObjectsGL/EBO.hpp"
 
+
 #define MI_STARTING_INDEX 0
+#define MI_COUNT 1
 
 class Renderer : virtual public Window {
     
@@ -27,9 +28,6 @@ private:
         char * glVersion;
         char * glExtensions;
     } contextInformation;
-    
-    Shader* shader;
-    ShaderLoader* shaderLoader;
     
     VBO* vbo;
     VAO* vao;
@@ -48,11 +46,9 @@ public:
     
     virtual void renderGameContents() =0;
     
-    void drawEntityElements(Entity* model, glm::mat4 camera, glm::mat4 projection);
-    void drawEntityArrays(Entity* model, glm::mat4 camera, glm::mat4 projection);
+    void select(Entity* model, glm::mat4 camera, glm::mat4 projection);
+    void drawElementsFrom(Entity* model);
+    void drawArraysFrom(Entity* model);
     
     void storeEntityOnGPU(Entity* entity);
-    void useShaderProgram(int shaderId);
-    
-    GLuint createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile);
 };

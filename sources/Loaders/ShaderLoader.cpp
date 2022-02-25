@@ -8,16 +8,12 @@
 
 #include "ShaderLoader.hpp"
 
-ShaderLoader::ShaderLoader() : FileLoader() {
-    
-}
-
 GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
     char* vertexShaderSourcePath   = (char*)calloc(sizeof(char),256);
     char* fragmentShaderSourcePath = (char*)calloc(sizeof(char),256);
     
-    strcpy(vertexShaderSourcePath, this->generatePathForFile("shaders",vertexFileName));
-    strcpy(fragmentShaderSourcePath, this->generatePathForFile("shaders",fragmentFileName));
+    FileLoader::generatePathForFile(vertexShaderSourcePath ,"shaders", vertexFileName);
+    FileLoader::generatePathForFile(fragmentShaderSourcePath, "shaders", fragmentFileName);
     
     char* vertexShaderSource = read(vertexShaderSourcePath);
     char* fragmentShaderSource = read(fragmentShaderSourcePath);

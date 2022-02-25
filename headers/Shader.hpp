@@ -11,18 +11,15 @@
 #include "Core.hpp"
 #include "Loaders/ShaderLoader.hpp"
 
-#define MATRICES_TO_GENERATE 1
-
 class Shader {
     
 private:
     
-
+    ShaderLoader* shaderLoader;
     
 public:
     
-    Shader();
+    static GLuint createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile);
+    static void useShaderProgram(int shaderId);
     
-    void setUniformMatrix(GLuint uniformId, glm::mat4 matrix);
-    void setUniformInt(GLuint uniformId, GLint value);
 };

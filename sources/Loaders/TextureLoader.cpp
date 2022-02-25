@@ -19,7 +19,7 @@ GLuint TextureLoader::loadTexture2d(cchar* textureFileName) {
     GLuint entityTextureId;
     
     char* textureFilePath = (char*)calloc(sizeof(char),256);
-    strcpy(textureFilePath, this->generatePathForFile("textures",textureFileName));
+    this->generatePathForFile(textureFilePath, "textures",textureFileName);
     
     TextureLoader::Image* image = (TextureLoader::Image*) malloc(sizeof(TextureLoader::Image));
     stbi_set_flip_vertically_on_load(true);
@@ -31,7 +31,9 @@ GLuint TextureLoader::loadTexture2d(cchar* textureFileName) {
     
     glTexImage2D(GL_TEXTURE_2D, MI_MIPMAP_0, GL_RGBA, image->width, image->height, MI_BORDER_WIDTH, GL_RGBA, GL_UNSIGNED_BYTE, image->data);
     __glewGenerateMipmap(GL_TEXTURE_2D);
-    stbi_image_free(image);
+    stbi_image_free(image->data);
+    free(image);
+    free(textureFilePath);
     return entityTextureId;
 }
 
@@ -42,12 +44,14 @@ GLuint TextureLoader::loadTextureCubemap(std::vector<cchar*> textureFaces) {
     TextureLoader::Image* image = (TextureLoader::Image*) malloc(sizeof(TextureLoader::Image));
     
     for (byte x=0; x<textureFaces.size(); x++) {
-        strcpy(textureFilePath, this->generatePathForFile("textures", textureFaces[x]));
+        this->generatePathForFile(textureFilePath, "textures", textureFaces[x]);
         image->data = stbi_load(textureFilePath, &image->width, &image->height, &image->colorChannels, 0);
         MI_TEST(glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X+x, MI_MIPMAP_0, GL_RGB, image->width, image->height, MI_BORDER_WIDTH, GL_RGB, GL_UNSIGNED_BYTE, image->data));
         this->checkTextureFileIsFound(image, textureFilePath);
         stbi_image_free(image->data);
     }
+    free(image);
+    free(textureFilePath);
     glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
     TextureLoader::setTextureParameters(GL_TEXTURE_CUBE_MAP);
     return entityTextureId;

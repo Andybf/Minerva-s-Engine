@@ -8,10 +8,6 @@
 
 #include "FileLoader.hpp"
 
-FileLoader::FileLoader() {
-    
-}
-
 void FileLoader::discoverOperatingSystemWith(char* programPath) {
     std::string path = programPath;
     for (ushort x = path.size(); x>0; x--) {
@@ -36,18 +32,16 @@ void FileLoader::removeExecutableNameFrom(char* path) {
     strcpy(path, tempPath.c_str());
 }
 
-char* FileLoader::generatePathForFile(cchar* folder, cchar* filename) {
-    char* filePath = (char*) calloc(sizeof(char),256);
+void FileLoader::generatePathForFile(char* sourcePath, cchar* folder, cchar* filename) {
     if (FileLoader::operatingSystem == OPERATING_SYSTEM_WINODWS) {
-        sprintf(filePath, "%s\\%s\\%s", FileLoader::programPath,folder,filename);
+        sprintf(sourcePath, "%s\\%s\\%s", FileLoader::programPath,folder,filename);
     } else {
-        sprintf(filePath, "%s/%s/%s", FileLoader::programPath,folder,filename);
+        sprintf(sourcePath, "%s/%s/%s", FileLoader::programPath,folder,filename);
     }
-    return filePath;
 }
 
 void FileLoader::formatProgramPathString(char* path) {
-    this->discoverOperatingSystemWith(path);
-    this->removeExecutableNameFrom(path);
+    FileLoader::discoverOperatingSystemWith(path);
+    FileLoader::removeExecutableNameFrom(path);
 }
 

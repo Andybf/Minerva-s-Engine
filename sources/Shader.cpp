@@ -8,15 +8,11 @@
 
 #include "Shader.hpp"
 
-Shader::Shader() {
-    
+GLuint Shader::createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile) {
+    GLuint shaderProgramId = ShaderLoader::load(vertexFile,fragmentFile);
+    return shaderProgramId;
 }
 
-void Shader::setUniformMatrix(GLuint uniformId, glm::mat4 matrix) {
-    glUniformMatrix4fv(uniformId, MATRICES_TO_GENERATE, GL_FALSE, &matrix[0][0]);
+void Shader::useShaderProgram(int shaderId) {
+    glUseProgram(shaderId);
 }
-
-void Shader::setUniformInt(GLuint uniformId, GLint value) {
-    glUniform1i(uniformId,value);
-}
-

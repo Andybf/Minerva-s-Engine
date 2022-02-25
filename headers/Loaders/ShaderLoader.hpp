@@ -20,6 +20,5 @@ private:
     static void check(int status, int shaderId);
     
 public:
-    ShaderLoader();
-    GLuint load(cchar* vertexFileName, cchar* fragmentFileName);
+    static GLuint load(cchar* vertexFileName, cchar* fragmentFileName);
 };
