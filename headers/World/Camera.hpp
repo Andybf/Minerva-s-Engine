@@ -27,7 +27,7 @@ public:
     void setPosition(glm::vec3 position);
     glm::vec3 getPosition();
     
-    void setOrientation(glm::vec3 orientation);
+    void setOrientation(float yaw, float pitch);
     glm::vec3 getOrientation();
     
     void setUpAxis(glm::vec3 up);

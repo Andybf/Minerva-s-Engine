@@ -25,8 +25,8 @@ public:
     std::vector<GLfloat> colors;
     std::vector<GLfloat> textureCoords;
 
-    uint relatedTextureId;
-    uint relatedShaderId;
+    ushort relatedTextureId;
+    ushort relatedShaderId;
     struct Dimensions {
         byte position;
         byte color;
@@ -36,9 +36,9 @@ public:
     uchar modelType;
     bool isEnabled;
 
-    GLuint vaoId;
-    GLuint vboId;
-    GLuint eboId;
+    ushort vaoId;
+    ushort vboId;
+    ushort eboId;
 
     glm::mat4 getMatrix();
 
@@ -46,6 +46,7 @@ public:
     glm::vec3 getScale();
     
     void setPosition(glm::vec3 position);
+    void addToPosition(glm::vec3 position);
     glm::vec3 getPosition();
     
     void setOrientation(float angle,glm::vec3 orientation);

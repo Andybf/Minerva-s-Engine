@@ -38,17 +38,18 @@ private:
     void resetFramesPerSecond();
     void printContextInformation();
     
+    virtual void renderGameContents() =0;
+    
+    void select(Entity* model, glm::mat4 camera, glm::mat4 projection);
+    
 public:
     
     Renderer();
     
     void InitializeRendering();
     
-    virtual void renderGameContents() =0;
-    
-    void select(Entity* model, glm::mat4 camera, glm::mat4 projection);
-    void drawElementsFrom(Entity* model);
-    void drawArraysFrom(Entity* model);
+    void drawElementsFrom(Entity* model, glm::mat4 camera, glm::mat4 projection);
+    void drawArraysFrom(Entity* model, glm::mat4 camera, glm::mat4 projection);
     
     void storeEntityOnGPU(Entity* entity);
 };

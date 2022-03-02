@@ -36,7 +36,10 @@ glm::vec3 Entity::getScale() {
 }
 
 void Entity::setPosition(glm::vec3 position) {
-    this->matrix = glm::translate(this->matrix, position);
+    this->matrix = glm::translate(position);
+}
+void Entity::addToPosition(glm::vec3 position) {
+    this->matrix = glm::translate(this->matrix,position);
 }
 glm::vec3 Entity::getPosition() {
     return this->matrix[3];

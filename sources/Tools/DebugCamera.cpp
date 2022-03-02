@@ -47,10 +47,7 @@ void DebugCamera::handleMouseMovement(float x, float y) {
         if (this->pitch < -90.0f) {
             this->pitch = -89.99f;
         }
-        glm::vec3 cameraFocus = glm::vec3(cos(glm::radians(yaw)) * cos(glm::radians(pitch)),
-                                          sin(glm::radians(pitch)),
-                                          sin(glm::radians(yaw)) * cos(glm::radians(pitch)));
-        this->camera->setOrientation(glm::normalize(cameraFocus));
+        this->camera->setOrientation(yaw, pitch);
     }
     if (y != this->actualMouseState.y) {
         this->lastMouseState.x = this->actualMouseState.x;

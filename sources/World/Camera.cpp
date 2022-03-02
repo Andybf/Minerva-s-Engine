@@ -26,8 +26,10 @@ glm::vec3 Camera::getPosition() {
     return this->position;
 }
 
-void Camera::setOrientation(glm::vec3 orientation) {
-    this->orientation = orientation;
+void Camera::setOrientation(float yaw, float pitch) {
+    this->orientation = glm::normalize(glm::vec3(cos(glm::radians(yaw)) * cos(glm::radians(pitch)),
+                                                 sin(glm::radians(pitch)),
+                                                 sin(glm::radians(yaw)) * cos(glm::radians(pitch))));
 }
 glm::vec3 Camera::getOrientation() {
     return this->orientation;
