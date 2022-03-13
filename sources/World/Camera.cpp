@@ -34,10 +34,3 @@ void Camera::setOrientation(float yaw, float pitch) {
 glm::vec3 Camera::getOrientation() {
     return this->orientation;
 }
-
-void Camera::setUpAxis(glm::vec3 up) {
-    this->upAxis = up;
-}
-glm::vec3 Camera::getUpAxis() {
-    return this->upAxis;
-}

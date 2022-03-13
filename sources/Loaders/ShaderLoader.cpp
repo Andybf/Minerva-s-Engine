@@ -30,7 +30,7 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
 }
 
 char* ShaderLoader::read(char* sourcePath) {
-    FILE * file = fopen(sourcePath, "r");
+    FILE* file = fopen(sourcePath, "r");
     if(file == NULL) {
         printf("[ERROR] No such file has been found: %s\n",sourcePath);
         exit(1);
@@ -38,7 +38,7 @@ char* ShaderLoader::read(char* sourcePath) {
     struct stat fileInfo;
     stat(sourcePath, &fileInfo);
     
-    char * fileSource = (char*)calloc(sizeof(char), fileInfo.st_size);
+    char* fileSource = (char*) calloc(sizeof(char), fileInfo.st_size);
     fread(fileSource, fileInfo.st_size, 1, file);
     return fileSource;
 }

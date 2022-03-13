@@ -15,18 +15,16 @@
 #include "ObjectsGL/VAO.hpp"
 #include "ObjectsGL/EBO.hpp"
 
-
-#define MI_STARTING_INDEX 0
-#define MI_COUNT 1
+#include "Tools/DebuggerInterface.h"
 
 class Renderer : virtual public Window {
     
 private:
     struct ContextInformation {
-        char * glVendor;
-        char * glRenderer;
-        char * glVersion;
-        char * glExtensions;
+        char* glVendor;
+        char* glRenderer;
+        char* glVersion;
+        char* glExtensions;
     } contextInformation;
     
     VBO* vbo;
@@ -40,16 +38,16 @@ private:
     
     virtual void renderGameContents() =0;
     
-    void select(Entity* model, glm::mat4 camera, glm::mat4 projection);
-    
 public:
     
     Renderer();
     
     void InitializeRendering();
     
-    void drawElementsFrom(Entity* model, glm::mat4 camera, glm::mat4 projection);
-    void drawArraysFrom(Entity* model, glm::mat4 camera, glm::mat4 projection);
+    void drawElementsInstanced(Entity* model, int count);
+    void drawElements(Entity* model);
+    void drawArrays(Entity* model);
     
+    void bindVertexArray(uint vertexArrayId);
     void storeEntityOnGPU(Entity* entity);
 };

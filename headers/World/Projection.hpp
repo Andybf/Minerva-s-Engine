@@ -16,19 +16,27 @@ private:
     glm::mat4 orthographicMatrix;
     glm::mat4 perspectiveMatrix;
     
-    uchar activeProjectionMode;
+    float fieldOfView;
+    float aspectRatio;
+    float nearPlane;
+    float farPlane;
     
 public:
     Projection();
     
     glm::mat4 getOrthographic();
-    void setOrthographic(GLfloat west, GLfloat east, GLfloat south, GLfloat north, GLfloat behind, GLfloat front);
+    void setOrthographic(float west, float east, float south, float north);
     
     glm::mat4 getPerspective();
-    void setPerspecProjection(GLdouble fieldOfView, GLdouble aspectRatio, GLdouble nearPlane, GLdouble FarPlane);
+    void setPerspecProjection(float fieldOfView, float aspectRatio, float nearPlane, float FarPlane);
     void setPerspectiveTranslation(glm::vec3 newTranslation);
     
-    void setActiveProjectionMode(uchar activeProjectionMode);
-    uchar getActiveProjectionMode();
+    float getFieldOfView();
+    void setFieldOfView(float fieldOfView);
     
+    float getNearPlane();
+    void setNearPlane(float nearPlane);
+    
+    float getFarPlane();
+    void setFarPlane(float farPlane);
 };

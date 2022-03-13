@@ -27,6 +27,13 @@ Window::Window(cchar* title, ushort width, ushort height) {
     glewInit();
 }
 
+float Window::getWindowWidth() {
+    return this->width;
+}
+float Window::getWindowHeight() {
+    return this->height;
+}
+
 float Window::getAspectRatio() {
     return this->aspectRatio;
 }

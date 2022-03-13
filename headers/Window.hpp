@@ -32,6 +32,8 @@ public:
     
     Window(cchar* title, ushort width, ushort height);
     
+    float getWindowWidth();
+    float getWindowHeight();
     float getAspectRatio();
     
     void recieveKeyPress(int buttonPressed, int actionPerformed);

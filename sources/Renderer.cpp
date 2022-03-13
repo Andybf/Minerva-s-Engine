@@ -47,30 +47,19 @@ void Renderer::InitializeRendering() {
     glfwTerminate();
 }
 
-void Renderer::select(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
-    if (entity->relatedTextureId != 0) {
-        MI_TEST(glUniform1i(glGetUniformLocation(entity->relatedShaderId, "texture0"),entity->relatedTextureId-1));
-        MI_TEST(glActiveTexture(GL_TEXTURE0 + entity->relatedTextureId- 1));
-        MI_TEST(glBindTexture(entity->dimensions.texture, entity->relatedTextureId));
-    }
-    MI_TEST(glBindVertexArray(entity->vaoId));
-    MI_TEST(glUniformMatrix4fv(glGetUniformLocation(entity->relatedShaderId,"modelMatrix"), MI_COUNT, GL_FALSE, &entity->getMatrix()[0][0]));
-    MI_TEST(glUniformMatrix4fv(glGetUniformLocation(entity->relatedShaderId,"viewMatrix"), MI_COUNT, GL_FALSE, &camera[0][0]));
-    MI_TEST(glUniformMatrix4fv(glGetUniformLocation(entity->relatedShaderId,"projectionMatrix"), MI_COUNT, GL_FALSE, &projection[0][0]));
-    
-    MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
+void Renderer::drawElementsInstanced(Entity* model, int count) {
+    MI_TEST(glDrawElementsInstanced(model->modelType, (int)model->indices.size(), GL_UNSIGNED_INT, 0, count));
 }
-
-void Renderer::drawElementsFrom(Entity* model, glm::mat4 camera, glm::mat4 projection) {
-    this->select(model, camera, projection);
+void Renderer::drawElements(Entity* model) {
     MI_TEST(glDrawElements(model->modelType, (int)model->indices.size(), GL_UNSIGNED_INT, 0));
 }
-
-void Renderer::drawArraysFrom(Entity* model, glm::mat4 camera, glm::mat4 projection) {
-    this->select(model, camera, projection);
+void Renderer::drawArrays(Entity* model) {
     MI_TEST(glDrawArrays(model->modelType, MI_STARTING_INDEX, (float)model->model.size()/3));
 }
 
+void Renderer::bindVertexArray(uint vertexArrayId){
+    MI_TEST(glBindVertexArray(vertexArrayId));
+}
 void Renderer::storeEntityOnGPU(Entity* entity) {
     GLulong modelsSize = entity->model.size()*sizeof(GLfloat);
     GLulong colorsSize = modelsSize + entity->colors.size()*sizeof(GLfloat);

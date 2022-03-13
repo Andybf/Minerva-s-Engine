@@ -29,7 +29,4 @@ public:
     
     void setOrientation(float yaw, float pitch);
     glm::vec3 getOrientation();
-    
-    void setUpAxis(glm::vec3 up);
-    glm::vec3 getUpAxis();
 };

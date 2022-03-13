@@ -124,6 +124,13 @@ typedef char byte;
 #define MI_COLORS_RGB 3
 #define MI_COLORS_RGBA 4
 
+#define MI_STARTING_INDEX 0
+#define MI_COUNT 1
+#define MI_SIZE_CHAR 1
+#define MI_SIZE_SHORT 2
+#define MI_SIZE_INT 4
+#define MI_SIZE_FLOAT 8
+
 #ifdef MI_DEBUG
     #define MI_TEST(glFunctionCall)\
         while(glGetError() != GL_NO_ERROR);\

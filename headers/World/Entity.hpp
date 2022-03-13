@@ -20,21 +20,21 @@ public:
 
     Entity();
 
-    std::vector<GLfloat> model;
-    std::vector<GLuint> indices;
-    std::vector<GLfloat> colors;
-    std::vector<GLfloat> textureCoords;
+    std::vector<float> model;
+    std::vector<uint> indices;
+    std::vector<float> colors;
+    std::vector<float> textureCoords;
 
     ushort relatedTextureId;
     ushort relatedShaderId;
+    uchar modelType;
+    bool isEnabled;
     struct Dimensions {
         byte position;
         byte color;
         byte texCoord;
         uint texture;
     } dimensions;
-    uchar modelType;
-    bool isEnabled;
 
     ushort vaoId;
     ushort vboId;
