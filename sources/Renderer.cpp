@@ -15,43 +15,38 @@ Renderer::Renderer() {
     this->vbo = new VBO();
     this->vao = new VAO();
     this->ebo = new EBO();
-    this->framesPerSecond = 0;
-    this->printContextInformation();
+    this->frameCount = 0;
+    this->saveContextInformation();
 }
 
-void Renderer::printContextInformation() {
+void Renderer::saveContextInformation() {
     this->contextInformation.glVendor     = (char*)glGetString(GL_VENDOR);
     this->contextInformation.glRenderer   = (char*)glGetString(GL_RENDERER);
     this->contextInformation.glVersion    = (char*)glGetString(GL_VERSION);
     this->contextInformation.glExtensions = (char*)glGetString(GL_EXTENSIONS);
-    printf("\nMinerva OpenGL Context Information:\nglVendor   : %s\nglRenderer : %s\nglVersion  : %s\n\n",
-           this->contextInformation.glVendor,
-           this->contextInformation.glRenderer,
-           this->contextInformation.glVersion
-           );
 }
 
 void Renderer::InitializeRendering() {
     glfwSetTime(0.0);
     while (!glfwWindowShouldClose(this->windowId)) {
         if (glfwGetTime() >= 1.0) {
-            //printf("FPS: %hd\n",this->framesPerSecond);
-            this->resetFramesPerSecond();
+            this->framesPerSecond = this->frameCount;
+            this->resetFrameCount();
         }
         MI_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
         this->renderGameContents();
         glfwSwapBuffers(this->windowId);
         glfwPollEvents();
-        this->framesPerSecond++;
+        this->frameCount++;
     }
     glfwTerminate();
 }
 
-void Renderer::drawElementsInstanced(Entity* model, int count) {
-    MI_TEST(glDrawElementsInstanced(model->modelType, (int)model->indices.size(), GL_UNSIGNED_INT, 0, count));
+void Renderer::drawElementsInstanced(Entity* model, uint count) {
+    MI_TEST(glDrawElementsInstanced(model->modelType, (uint)model->indices.size(), GL_UNSIGNED_INT, 0, count));
 }
 void Renderer::drawElements(Entity* model) {
-    MI_TEST(glDrawElements(model->modelType, (int)model->indices.size(), GL_UNSIGNED_INT, 0));
+    MI_TEST(glDrawElements(model->modelType, (uint)model->indices.size(), GL_UNSIGNED_INT, 0));
 }
 void Renderer::drawArrays(Entity* model) {
     MI_TEST(glDrawArrays(model->modelType, MI_STARTING_INDEX, (float)model->model.size()/3));
@@ -77,7 +72,19 @@ void Renderer::storeEntityOnGPU(Entity* entity) {
     this->vbo->unbind();
 }
 
-void Renderer::resetFramesPerSecond() {
-    this->framesPerSecond = 0;
+void Renderer::resetFrameCount() {
+    this->frameCount = 0;
     glfwSetTime(0.0);
+}
+
+float Renderer::getFramesPerSecond() {
+    return this->framesPerSecond;
+}
+
+void Renderer::getContextInformation(char* string) {
+    sprintf(string, "\nMinerva OpenGL Context Information:\nglVendor   : %s\nglRenderer : %s\nglVersion  : %s\n\n",
+           this->contextInformation.glVendor,
+           this->contextInformation.glRenderer,
+           this->contextInformation.glVersion
+           );
 }

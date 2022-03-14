@@ -11,21 +11,25 @@
 #include "../Core.hpp"
 #include "../World/Entity.hpp"
 
-class Interface : public Entity {
+class Text : public Entity {
     
 private:
     short elementsCountX;
     short elementsCountY;
+    float characterScale;
     
     float fontmapWidth;
-    float fontElementWidth;
     int* string32bit;
-    glm::vec2* stringPos;
+    std::vector<glm::vec2> stringPositionList;
     int stringSize;
     
+    void countStringSize(uchar* string);
+    void calcCharPositionOnScreen(uchar* string);
+    
 public:
-    Interface();
+    Text(uint fontMapTextureId, uint textShaderId);
     void setText(uchar* string);
     int* get32bitString();
     int getStringSize();
+    std::vector<glm::vec2> getStringPositionList();
 };

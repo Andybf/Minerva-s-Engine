@@ -61,9 +61,9 @@ typedef unsigned char  uchar;
 typedef unsigned const char ucchar;
 typedef unsigned int   uint;
 typedef unsigned long  ulong;
+typedef const float cfloat;
 typedef const    char  cchar;
 typedef char byte;
-
 
 #define KEY_TAB GLFW_KEY_TAB
 #define KEY_0 GLFW_KEY_0
@@ -126,6 +126,7 @@ typedef char byte;
 
 #define MI_STARTING_INDEX 0
 #define MI_COUNT 1
+
 #define MI_SIZE_CHAR 1
 #define MI_SIZE_SHORT 2
 #define MI_SIZE_INT 4

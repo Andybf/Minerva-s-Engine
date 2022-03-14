@@ -15,8 +15,6 @@
 #include "ObjectsGL/VAO.hpp"
 #include "ObjectsGL/EBO.hpp"
 
-#include "Tools/DebuggerInterface.h"
-
 class Renderer : virtual public Window {
     
 private:
@@ -31,10 +29,11 @@ private:
     VAO* vao;
     EBO* ebo;
     
-    short framesPerSecond;
+    short frameCount;
+    float framesPerSecond;
     
-    void resetFramesPerSecond();
-    void printContextInformation();
+    void resetFrameCount();
+    void saveContextInformation();
     
     virtual void renderGameContents() =0;
     
@@ -44,10 +43,13 @@ public:
     
     void InitializeRendering();
     
-    void drawElementsInstanced(Entity* model, int count);
+    void drawElementsInstanced(Entity* model, uint count);
     void drawElements(Entity* model);
     void drawArrays(Entity* model);
     
     void bindVertexArray(uint vertexArrayId);
     void storeEntityOnGPU(Entity* entity);
+    
+    float getFramesPerSecond();
+    void getContextInformation(char* string);
 };
