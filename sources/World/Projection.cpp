@@ -30,14 +30,10 @@ glm::mat4 Projection::getPerspective() {
 }
 
 void Projection::setPerspecProjection(float fieldOfView, float aspectRatio, float nearPlane, float farPlane) {
-    this->fieldOfView = fieldOfView;
+    this->fieldOfView = glm::radians(fieldOfView);
     this->nearPlane = nearPlane;
     this->farPlane = farPlane;
-    this->perspectiveMatrix = glm::perspective(fieldOfView, aspectRatio, nearPlane, farPlane);
-}
-
-void Projection::setPerspectiveTranslation(glm::vec3 newTranslation) {
-    this->perspectiveMatrix = glm::translate(this->perspectiveMatrix, newTranslation);
+    this->perspectiveMatrix = glm::perspective(this->fieldOfView, aspectRatio, nearPlane, farPlane);
 }
 
 float Projection::getFieldOfView() {

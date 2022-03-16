@@ -23,5 +23,5 @@ public:
     virtual void deleteObject(GLuint id) override;
     
     GLuint generateNewVAO();
-    void linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, GLulong offset);
+    void linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, ulong offset);
 };

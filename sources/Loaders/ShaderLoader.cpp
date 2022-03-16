@@ -45,7 +45,7 @@ char* ShaderLoader::read(char* sourcePath) {
 
 GLuint ShaderLoader::compile(int shaderType, char* sourceContents) {
     GLuint shaderId = glCreateShader(shaderType);
-    glShaderSource(shaderId, 1, &sourceContents, 0);
+    glShaderSource(shaderId, 1, (cchar**)&sourceContents, 0);
     glCompileShader(shaderId);
     check(GL_COMPILE_STATUS, shaderId);
     return shaderId;

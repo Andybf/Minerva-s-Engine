@@ -33,6 +33,6 @@ public:
     static void setUniformTexture(uint textureId, uint dimensions);
     static void setUniformIntArray(cchar* name, int* intArray, int size);
     static void setUniformFloat(cchar* name, float value);
-    static void setUniformVec2(cchar* name, const float* value, int size);
+    static void setUniformVec2Array(cchar* name, const float* value, int size);
     
 };

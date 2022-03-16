@@ -29,7 +29,6 @@ public:
     
     glm::mat4 getPerspective();
     void setPerspecProjection(float fieldOfView, float aspectRatio, float nearPlane, float FarPlane);
-    void setPerspectiveTranslation(glm::vec3 newTranslation);
     
     float getFieldOfView();
     void setFieldOfView(float fieldOfView);

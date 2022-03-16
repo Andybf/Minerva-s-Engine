@@ -30,7 +30,7 @@ GLuint VAO::generateNewVAO() {
     return vertexArrayObject;
 }
 
-void VAO::linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, GLulong offset) {
+void VAO::linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, ulong offset) {
     glEnableVertexAttribArray(shaderAttribute);
     glVertexAttribPointer(shaderAttribute, numElements, GL_FLOAT, GL_FALSE, MI_STRIDE, BUFFER_OFFSET(offset));
 }

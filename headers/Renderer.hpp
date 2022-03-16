@@ -50,6 +50,7 @@ public:
     void bindVertexArray(uint vertexArrayId);
     void storeEntityOnGPU(Entity* entity);
     
+    int getFrameCount();
     float getFramesPerSecond();
     void getContextInformation(char* string);
 };

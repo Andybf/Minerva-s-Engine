@@ -29,8 +29,9 @@ GLuint TextureLoader::loadTexture2d(cchar* textureFileName) {
     TextureLoader::generateTextureId(&entityTextureId, GL_TEXTURE_2D);
     TextureLoader::setTextureParameters(GL_TEXTURE_2D);
     
-    glTexImage2D(GL_TEXTURE_2D, MI_MIPMAP_0, GL_RGBA, image->width, image->height, MI_BORDER_WIDTH, GL_RGBA, GL_UNSIGNED_BYTE, image->data);
-    __glewGenerateMipmap(GL_TEXTURE_2D);
+    MI_TEST(glTexImage2D(GL_TEXTURE_2D, MI_MIPMAP_0, GL_RGBA, image->width, image->height, MI_BORDER_WIDTH, GL_RGBA, GL_UNSIGNED_BYTE, image->data));
+    MI_TEST(glGenerateMipmap(GL_TEXTURE_2D));
+    
     stbi_image_free(image->data);
     free(image);
     free(textureFilePath);

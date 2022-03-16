@@ -25,9 +25,9 @@ void VBO::deleteObject(GLuint id) {
 }
 
 GLuint VBO::generateNewVBO(Entity* entity) {
-    GLulong modelsSize = entity->model.size()*sizeof(GLfloat);
-    GLulong colorsSize = entity->colors.size()*sizeof(GLfloat);
-    GLulong texCrdSize = entity->textureCoords.size()*sizeof(GLfloat);
+    ulong modelsSize = entity->model.size()*sizeof(GLfloat);
+    ulong colorsSize = entity->colors.size()*sizeof(GLfloat);
+    ulong texCrdSize = entity->textureCoords.size()*sizeof(GLfloat);
     GLuint vertexBufferObjectId = 0;
     
     glGenBuffers(1, &vertexBufferObjectId);

@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71135B9127BED9D700B3F522 /* glew.c in Sources */ = {isa = PBXBuildFile; fileRef = 711359D527BED9D500B3F522 /* glew.c */; };
-		71135B9227BED9D700B3F522 /* glewMacOS.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 711359D627BED9D500B3F522 /* glewMacOS.o */; };
-		71135B9627BED9D700B3F522 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 711359DC27BED9D500B3F522 /* libglfw3.a */; };
+		71135B9627BED9D700B3F522 /* libglfw3-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 711359DC27BED9D500B3F522 /* libglfw3-macOS.a */; };
 		71135CB727BED9D900B3F522 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71135B8E27BED9D700B3F522 /* Entity.cpp */; };
 		71135CB827BED9D900B3F522 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71135B8F27BED9D700B3F522 /* Window.cpp */; };
-		71135CB927BED9F400B3F522 /* glew.h in Headers */ = {isa = PBXBuildFile; fileRef = 711359D727BED9D500B3F522 /* glew.h */; };
 		71135CBA27BED9F700B3F522 /* glfw3.h in Headers */ = {isa = PBXBuildFile; fileRef = 711359DB27BED9D500B3F522 /* glfw3.h */; };
 		71135CBB27BED9FF00B3F522 /* Core.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71135B8B27BED9D700B3F522 /* Core.hpp */; };
 		71135CBC27BEDA0100B3F522 /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71135B8A27BED9D700B3F522 /* Window.hpp */; };
@@ -51,19 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		711359AA27BED30C00B3F522 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		711359AE27BED36C00B3F522 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		711359B027BED37500B3F522 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		711359B227BED3BC00B3F522 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		711359BA27BED57000B3F522 /* libMinervaEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMinervaEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		711359D427BED9D500B3F522 /* glewWindows.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = glewWindows.o; sourceTree = "<group>"; };
-		711359D527BED9D500B3F522 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
-		711359D627BED9D500B3F522 /* glewMacOS.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = glewMacOS.o; sourceTree = "<group>"; };
-		711359D727BED9D500B3F522 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		711359D927BED9D500B3F522 /* stb_image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stb_image.hpp; sourceTree = "<group>"; };
 		711359DB27BED9D500B3F522 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
-		711359DC27BED9D500B3F522 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
-		711359DD27BED9D500B3F522 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.dylib; sourceTree = "<group>"; };
+		711359DC27BED9D500B3F522 /* libglfw3-macOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libglfw3-macOS.a"; sourceTree = "<group>"; };
 		711359DF27BED9D500B3F522 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		711359E027BED9D500B3F522 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		711359E127BED9D500B3F522 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -499,6 +487,8 @@
 		717DED2E27BF070500AE2351 /* ShaderLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
 		717DED3227BF0A8400AE2351 /* FileLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLoader.cpp; sourceTree = "<group>"; };
 		717DED3327BF0A8400AE2351 /* FileLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileLoader.hpp; sourceTree = "<group>"; };
+		719F092427DF825E00B29961 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
+		719F092527DF825E00B29961 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		71A0AD0A27C0A13A00D58BED /* GLObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLObject.hpp; sourceTree = "<group>"; };
 		71A1589A27D6A05500F47398 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
 		71A1589B27D6A05500F47398 /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
@@ -528,8 +518,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71135B9227BED9D700B3F522 /* glewMacOS.o in Frameworks */,
-				71135B9627BED9D700B3F522 /* libglfw3.a in Frameworks */,
+				71135B9627BED9D700B3F522 /* libglfw3-macOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,10 +547,6 @@
 		711359A727BED2FD00B3F522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				711359B227BED3BC00B3F522 /* CoreVideo.framework */,
-				711359B027BED37500B3F522 /* CoreFoundation.framework */,
-				711359AE27BED36C00B3F522 /* Cocoa.framework */,
-				711359AA27BED30C00B3F522 /* IOKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -580,10 +565,8 @@
 		711359D327BED9D500B3F522 /* glew */ = {
 			isa = PBXGroup;
 			children = (
-				711359D427BED9D500B3F522 /* glewWindows.o */,
-				711359D527BED9D500B3F522 /* glew.c */,
-				711359D627BED9D500B3F522 /* glewMacOS.o */,
-				711359D727BED9D500B3F522 /* glew.h */,
+				719F092427DF825E00B29961 /* glew.c */,
+				719F092527DF825E00B29961 /* glew.h */,
 			);
 			path = glew;
 			sourceTree = "<group>";
@@ -600,8 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				711359DB27BED9D500B3F522 /* glfw3.h */,
-				711359DC27BED9D500B3F522 /* libglfw3.a */,
-				711359DD27BED9D500B3F522 /* libglfw.3.dylib */,
+				711359DC27BED9D500B3F522 /* libglfw3-macOS.a */,
 			);
 			path = glfw;
 			sourceTree = "<group>";
@@ -1219,7 +1201,6 @@
 				712C268127C33FFD00CEFB95 /* DebugCamera.hpp in Headers */,
 				71135CC127BEDA5E00B3F522 /* Renderer.hpp in Headers */,
 				71AF92A827BFCE1300209F97 /* Mouse.hpp in Headers */,
-				71135CB927BED9F400B3F522 /* glew.h in Headers */,
 				71AF92A427BFCDD000209F97 /* Keyboard.hpp in Headers */,
 				717DED3027BF070500AE2351 /* ShaderLoader.hpp in Headers */,
 				71135CBA27BED9F700B3F522 /* glfw3.h in Headers */,
@@ -1301,7 +1282,6 @@
 				71AF92C727C0473400209F97 /* Camera.cpp in Sources */,
 				717DED2F27BF070500AE2351 /* ShaderLoader.cpp in Sources */,
 				71AF92AB27BFCE2900209F97 /* Gamepad.cpp in Sources */,
-				71135B9127BED9D700B3F522 /* glew.c in Sources */,
 				71AF92D327C047E500209F97 /* VAO.cpp in Sources */,
 				71AF92DD27C0482500209F97 /* TextureLoader.cpp in Sources */,
 				71AF92CB27C0477E00209F97 /* Projection.cpp in Sources */,
@@ -1429,32 +1409,69 @@
 		711359BB27BED57000B3F522 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CLANG_MODULES_AUTOLINK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NJTSLY2P32;
 				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/dependencies/glew",
 					"$(PROJECT_DIR)/dependencies/glfw",
 					"$(PROJECT_DIR)/Minerva\\'s\\ Engine/dependencies/glfw",
 				);
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Debug;
 		};
 		711359BC27BED57000B3F522 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_DEBUG_INFORMATION_LEVEL = "line-tables-only";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				CLANG_MODULES_AUTOLINK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NJTSLY2P32;
 				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_OPTIMIZATION_LEVEL = z;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/dependencies/glew",
 					"$(PROJECT_DIR)/dependencies/glfw",
 					"$(PROJECT_DIR)/Minerva\\'s\\ Engine/dependencies/glfw",
 				);
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Release;
 		};

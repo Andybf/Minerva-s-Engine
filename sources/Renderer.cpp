@@ -56,8 +56,8 @@ void Renderer::bindVertexArray(uint vertexArrayId){
     MI_TEST(glBindVertexArray(vertexArrayId));
 }
 void Renderer::storeEntityOnGPU(Entity* entity) {
-    GLulong modelsSize = entity->model.size()*sizeof(GLfloat);
-    GLulong colorsSize = modelsSize + entity->colors.size()*sizeof(GLfloat);
+    ulong modelsSize = entity->model.size()*sizeof(GLfloat);
+    ulong colorsSize = modelsSize + entity->colors.size()*sizeof(GLfloat);
     
     entity->vboId = this->vbo->generateNewVBO(entity);
     entity->vaoId = this->vao->generateNewVAO();
@@ -75,6 +75,10 @@ void Renderer::storeEntityOnGPU(Entity* entity) {
 void Renderer::resetFrameCount() {
     this->frameCount = 0;
     glfwSetTime(0.0);
+}
+
+int Renderer::getFrameCount() {
+    return this->frameCount;
 }
 
 float Renderer::getFramesPerSecond() {

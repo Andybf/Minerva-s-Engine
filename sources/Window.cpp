@@ -24,7 +24,6 @@ Window::Window(cchar* title, ushort width, ushort height) {
     this->aspectRatio = (float) width/height;
     glfwMakeContextCurrent(this->windowId);
     glfwSetWindowUserPointer(this->windowId, this);
-    glewInit();
 }
 
 float Window::getWindowWidth() {
