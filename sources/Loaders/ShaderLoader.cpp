@@ -15,8 +15,8 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
     FileLoader::generatePathForFile(vertexShaderSourcePath ,"shaders", vertexFileName);
     FileLoader::generatePathForFile(fragmentShaderSourcePath, "shaders", fragmentFileName);
     
-    char* vertexShaderSource = read(vertexShaderSourcePath);
-    char* fragmentShaderSource = read(fragmentShaderSourcePath);
+    char* vertexShaderSource = FileLoader::read(vertexShaderSourcePath);
+    char* fragmentShaderSource = FileLoader::read(fragmentShaderSourcePath);
     
     int vertexId = compile(GL_VERTEX_SHADER, vertexShaderSource);
     int fragmentId = compile(GL_FRAGMENT_SHADER, fragmentShaderSource);
@@ -27,20 +27,6 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
     free(fragmentShaderSource);
     
     return link(vertexId, fragmentId);
-}
-
-char* ShaderLoader::read(char* sourcePath) {
-    FILE* file = fopen(sourcePath, "r");
-    if(file == NULL) {
-        printf("[ERROR] No such file has been found: %s\n",sourcePath);
-        exit(1);
-    }
-    struct stat fileInfo;
-    stat(sourcePath, &fileInfo);
-    
-    char* fileSource = (char*) calloc(sizeof(char), fileInfo.st_size);
-    fread(fileSource, fileInfo.st_size, 1, file);
-    return fileSource;
 }
 
 GLuint ShaderLoader::compile(int shaderType, char* sourceContents) {

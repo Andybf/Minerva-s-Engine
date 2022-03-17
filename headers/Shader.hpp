@@ -10,21 +10,16 @@
 
 #include "Core.hpp"
 #include "World/Entity.hpp"
-#include "Loaders/ShaderLoader.hpp"
 
 class Shader {
     
 private:
     
-    ShaderLoader* shaderLoader;
-    
     static uint activeShaderId;
-    
     static void setUniformMatrix(cchar* name, glm::mat4 matrix);
     
 public:
     
-    static GLuint createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile);
     static void activateProgramWithId(uint shaderId);
     
     static void setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection);

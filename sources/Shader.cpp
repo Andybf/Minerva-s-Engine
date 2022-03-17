@@ -10,11 +10,6 @@
 
 uint Shader::activeShaderId = 0;
 
-GLuint Shader::createNewShaderProgram(cchar* vertexFile, cchar* fragmentFile) {
-    GLuint shaderProgramId = ShaderLoader::load(vertexFile,fragmentFile);
-    return shaderProgramId;
-}
-
 void Shader::activateProgramWithId(uint shaderId) {
     glUseProgram(shaderId);
     Shader::activeShaderId = shaderId;

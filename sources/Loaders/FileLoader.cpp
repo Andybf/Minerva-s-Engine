@@ -8,20 +8,7 @@
 
 #include "FileLoader.hpp"
 
-void FileLoader::discoverOperatingSystemWith(char* programPath) {
-    std::string path = programPath;
-    for (ushort x = path.size(); x>0; x--) {
-        if (path[x] == '\\') {
-            FileLoader::operatingSystem = OPERATING_SYSTEM_WINODWS;
-            break;
-        } else if (path[x] == '/') {
-            FileLoader::operatingSystem = OPERATING_SYSTEM_UNIX;
-            break;
-        }
-    }
-}
-
-void FileLoader::removeExecutableNameFrom(char* path) {
+void FileLoader::removeExecutableNameFrom(cchar* path) {
     std::string tempPath = path;
     for (ushort x = tempPath.size(); x > 0; x--) {
         if (tempPath[x] == '/' || tempPath[x] == '\\') {
@@ -29,19 +16,24 @@ void FileLoader::removeExecutableNameFrom(char* path) {
             break;
         }
     }
-    strcpy(path, tempPath.c_str());
+    FileLoader::programPath = (char*)calloc(sizeof(char*),tempPath.size());
+    strcpy(FileLoader::programPath, tempPath.c_str());
 }
 
 void FileLoader::generatePathForFile(char* sourcePath, cchar* folder, cchar* filename) {
-    if (FileLoader::operatingSystem == OPERATING_SYSTEM_WINODWS) {
-        sprintf(sourcePath, "%s\\%s\\%s", FileLoader::programPath,folder,filename);
-    } else {
-        sprintf(sourcePath, "%s/%s/%s", FileLoader::programPath,folder,filename);
+    sprintf(sourcePath, "%s%s%s%s%s", FileLoader::programPath,MI_OS_PATH_FORMAT,folder,MI_OS_PATH_FORMAT,filename);
+}
+
+char* FileLoader::read(char* sourcePath) {
+    FILE* file = fopen(sourcePath, "r");
+    if(file == NULL) {
+        printf("[MI_ERROR] No such file has been found: %s\n",sourcePath);
+        exit(1);
     }
+    struct stat fileInfo;
+    stat(sourcePath, &fileInfo);
+    
+    char* fileSource = (char*) calloc(sizeof(char), fileInfo.st_size);
+    fread(fileSource, fileInfo.st_size, 1, file);
+    return fileSource;
 }
-
-void FileLoader::formatProgramPathString(char* path) {
-    FileLoader::discoverOperatingSystemWith(path);
-    FileLoader::removeExecutableNameFrom(path);
-}
-

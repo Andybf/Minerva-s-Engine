@@ -26,6 +26,8 @@
 		717DED3527BF0A8400AE2351 /* FileLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 717DED3327BF0A8400AE2351 /* FileLoader.hpp */; };
 		71A1589C27D6A05500F47398 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71A1589A27D6A05500F47398 /* Text.cpp */; };
 		71A1589D27D6A05500F47398 /* Text.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71A1589B27D6A05500F47398 /* Text.hpp */; };
+		71A512A227E2213000C030BB /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71A512A027E2213000C030BB /* ModelLoader.cpp */; };
+		71A512A327E2213000C030BB /* ModelLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71A512A127E2213000C030BB /* ModelLoader.hpp */; };
 		71AF92A327BFCDD000209F97 /* Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92A127BFCDD000209F97 /* Keyboard.cpp */; };
 		71AF92A427BFCDD000209F97 /* Keyboard.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71AF92A227BFCDD000209F97 /* Keyboard.hpp */; };
 		71AF92A727BFCE1300209F97 /* Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71AF92A527BFCE1300209F97 /* Mouse.cpp */; };
@@ -492,6 +494,8 @@
 		71A0AD0A27C0A13A00D58BED /* GLObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLObject.hpp; sourceTree = "<group>"; };
 		71A1589A27D6A05500F47398 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
 		71A1589B27D6A05500F47398 /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
+		71A512A027E2213000C030BB /* ModelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoader.cpp; sourceTree = "<group>"; };
+		71A512A127E2213000C030BB /* ModelLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelLoader.hpp; sourceTree = "<group>"; };
 		71AF92A127BFCDD000209F97 /* Keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Keyboard.cpp; sourceTree = "<group>"; };
 		71AF92A227BFCDD000209F97 /* Keyboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Keyboard.hpp; sourceTree = "<group>"; };
 		71AF92A527BFCE1300209F97 /* Mouse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mouse.cpp; sourceTree = "<group>"; };
@@ -1110,6 +1114,7 @@
 				717DED3227BF0A8400AE2351 /* FileLoader.cpp */,
 				717DED2D27BF070500AE2351 /* ShaderLoader.cpp */,
 				71AF92DB27C0482500209F97 /* TextureLoader.cpp */,
+				71A512A027E2213000C030BB /* ModelLoader.cpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1120,6 +1125,7 @@
 				717DED3327BF0A8400AE2351 /* FileLoader.hpp */,
 				717DED2E27BF070500AE2351 /* ShaderLoader.hpp */,
 				71AF92DC27C0482500209F97 /* TextureLoader.hpp */,
+				71A512A127E2213000C030BB /* ModelLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1195,6 +1201,7 @@
 			files = (
 				71AF92AC27BFCE2900209F97 /* Gamepad.hpp in Headers */,
 				717DED3527BF0A8400AE2351 /* FileLoader.hpp in Headers */,
+				71A512A327E2213000C030BB /* ModelLoader.hpp in Headers */,
 				71135CBD27BEDA0500B3F522 /* Entity.hpp in Headers */,
 				71135CC527BEF66100B3F522 /* Shader.hpp in Headers */,
 				71AF92D027C047C700209F97 /* VBO.hpp in Headers */,
@@ -1275,6 +1282,7 @@
 			files = (
 				71AF92A727BFCE1300209F97 /* Mouse.cpp in Sources */,
 				71135CC027BEDA5E00B3F522 /* Renderer.cpp in Sources */,
+				71A512A227E2213000C030BB /* ModelLoader.cpp in Sources */,
 				71135CB727BED9D900B3F522 /* Entity.cpp in Sources */,
 				71A1589C27D6A05500F47398 /* Text.cpp in Sources */,
 				71AF92D727C047FC00209F97 /* EBO.cpp in Sources */,

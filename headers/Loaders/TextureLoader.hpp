@@ -14,24 +14,22 @@
 #define MI_MIPMAP_0 0
 #define MI_BORDER_WIDTH 0
 
-class TextureLoader : virtual public FileLoader {
+class TextureLoader {
     
 private:
-    struct Image{
+    static struct Image{
         uchar* data;
         int width;
         int height;
         int colorChannels;
     } image;
     
-    void generateTextureId(GLuint* textureId, int texType);
-    void setTextureParameters(int texType);
-    void checkTextureFileIsFound(Image* image, cchar* textureFileName);
+    static void generateTextureId(GLuint* textureId, int texType);
+    static void setTextureParameters(int texType);
+    static void checkTextureFileIsFound(Image* image, cchar* textureFileName);
     
 public:
-    TextureLoader();
-    
-    GLuint loadTexture2d(cchar* textureFilePath);
-    GLuint loadTextureCubemap(std::vector<cchar*> textureFaces);
+    static GLuint load2d(cchar* textureFilePath);
+    static GLuint loadCubemap(std::vector<cchar*> textureFaces);
     
 };

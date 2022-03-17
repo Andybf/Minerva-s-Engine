@@ -8,22 +8,23 @@
 
 #pragma once
 
-#include "../Core.hpp"
+#ifdef _WIN32
+    #define MI_OS_PATH_FORMAT "\\" //for Windows based system
+#else
+    #define MI_OS_PATH_FORMAT "/" //for Unix-like system
+#endif
 
-#define OPERATING_SYSTEM_WINODWS 0
-#define OPERATING_SYSTEM_UNIX 1
+#include "../Core.hpp"
 
 class FileLoader {
     
 private:
-    static void discoverOperatingSystemWith(char* programPath);
-    static void removeExecutableNameFrom(char* programPath);
     
 public:
     static char* programPath;
-    static short operatingSystem;
         
     static void generatePathForFile(char* sourcePath, cchar* folder, cchar* fileName);
-    static void formatProgramPathString(char* path);
+    static void removeExecutableNameFrom(cchar* programPath);
+    static char* read(char* sourcePath);
     
 };
