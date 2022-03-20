@@ -8,20 +8,18 @@
 
 #pragma once
 
-#include "GLObject.hpp"
 #include "../Core.hpp"
 
-class VAO : GLObject {
+class VAO {
     
 private:
     
 public:
-    VAO();
     
-    virtual void bind(GLuint id) override;
-    virtual void unbind() override;
-    virtual void deleteObject(GLuint id) override;
+    static void bind(GLuint id);
+    static void unbind();
+    static void deleteObject(GLuint id);
     
-    GLuint generateNewVAO();
-    void linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, ulong offset);
+    static GLuint generateNewVAO();
+    static void linkAttribute(GLuint vertexArrayObject, GLuint shaderAttribute, short numElements, ulong offset);
 };

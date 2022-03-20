@@ -491,7 +491,6 @@
 		717DED3327BF0A8400AE2351 /* FileLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileLoader.hpp; sourceTree = "<group>"; };
 		719F092427DF825E00B29961 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
 		719F092527DF825E00B29961 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
-		71A0AD0A27C0A13A00D58BED /* GLObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLObject.hpp; sourceTree = "<group>"; };
 		71A1589A27D6A05500F47398 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
 		71A1589B27D6A05500F47398 /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
 		71A512A027E2213000C030BB /* ModelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoader.cpp; sourceTree = "<group>"; };
@@ -1164,7 +1163,6 @@
 		71AF92A027BFCD9700209F97 /* ObjectsGL */ = {
 			isa = PBXGroup;
 			children = (
-				71A0AD0A27C0A13A00D58BED /* GLObject.hpp */,
 				71AF92D227C047E500209F97 /* VAO.hpp */,
 				71AF92CE27C047C700209F97 /* VBO.hpp */,
 				71AF92D627C047FC00209F97 /* EBO.hpp */,

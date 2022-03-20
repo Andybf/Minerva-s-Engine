@@ -33,7 +33,7 @@ char* FileLoader::read(char* sourcePath) {
     struct stat fileInfo;
     stat(sourcePath, &fileInfo);
     
-    char* fileSource = (char*) calloc(sizeof(char), fileInfo.st_size);
+    char* fileSource = (char*) calloc(sizeof(char*), fileInfo.st_size);
     fread(fileSource, fileInfo.st_size, 1, file);
     return fileSource;
 }

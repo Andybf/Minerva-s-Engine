@@ -8,10 +8,6 @@
 
 #include "VAO.hpp"
 
-VAO::VAO() {
-    
-}
-
 void VAO::bind(GLuint id) {
     glBindVertexArray(id);
 }

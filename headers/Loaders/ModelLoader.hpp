@@ -9,19 +9,19 @@
 #pragma once
 
 #include "FileLoader.hpp"
+#include "../World/Entity.hpp"
+#include "../ObjectsGL/VBO.hpp"
+#include "../ObjectsGL/VAO.hpp"
+#include "../ObjectsGL/EBO.hpp"
 
 class ModelLoader {
     
 private:
-    struct Model {
-        std::vector<float> vertices;
-        std::vector<float> normals;
-        std::vector<float> texCoords;
-        std::vector<int> indices;
-    };
-    static Model model;
-    static void skipComments(FILE* file);
+    static void moveFilePointerToBefore(FILE* file, char* substring);
+    static void readVertex(FILE* file, cchar* VertexTypeName, std::vector<float>* vertexList);
+    static void readIndices(FILE* file, std::vector<uint>* indicesList);
     
 public:
-    static uint load(cchar* modelFileName);
+    static void load(cchar* modelFileName, Entity* entity);
 };
+

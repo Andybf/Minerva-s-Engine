@@ -21,6 +21,7 @@ private:
 public:
     
     static void activateProgramWithId(uint shaderId);
+    static uint getActiveShaderId();
     
     static void setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection);
     static void setUniformModelProjection(Entity* entity, glm::mat4 projection);

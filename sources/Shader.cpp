@@ -15,6 +15,10 @@ void Shader::activateProgramWithId(uint shaderId) {
     Shader::activeShaderId = shaderId;
 }
 
+uint Shader::getActiveShaderId(){
+    return activeShaderId;
+}
+
 void Shader::setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
     MI_TEST(glBindVertexArray(entity->vaoId));
     Shader::setUniformMatrix("modelMatrix", entity->getMatrix());
@@ -32,7 +36,6 @@ void Shader::setUniformTexture(uint textureId, uint dimensions) {
     MI_TEST(glUniform1i(glGetUniformLocation(Shader::activeShaderId, "texture0"),textureId-1));
     MI_TEST(glActiveTexture(GL_TEXTURE0 + textureId- 1));
     MI_TEST(glBindTexture(dimensions, textureId));
-    MI_TEST(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
 }
 void Shader::setUniformMatrix(cchar* name, glm::mat4 matrix) {
     MI_TEST(glUniformMatrix4fv(glGetUniformLocation(Shader::activeShaderId,name), MI_COUNT, GL_FALSE, &matrix[0][0]));

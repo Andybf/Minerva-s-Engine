@@ -11,9 +11,7 @@
 #include "Core.hpp"
 #include "Window.hpp"
 #include "World/Entity.hpp"
-#include "ObjectsGL/VBO.hpp"
-#include "ObjectsGL/VAO.hpp"
-#include "ObjectsGL/EBO.hpp"
+
 
 class Renderer : virtual public Window {
     
@@ -24,10 +22,6 @@ private:
         char* glVersion;
         char* glExtensions;
     } contextInformation;
-    
-    VBO* vbo;
-    VAO* vao;
-    EBO* ebo;
     
     short frameCount;
     float framesPerSecond;
@@ -48,7 +42,6 @@ public:
     void drawArrays(Entity* model);
     
     void bindVertexArray(uint vertexArrayId);
-    void storeEntityOnGPU(Entity* entity);
     
     int getFrameCount();
     float getFramesPerSecond();

@@ -10,13 +10,15 @@
 
 Entity::Entity() {
     this->matrix = glm::mat4(1.0f);
-    this->modelType = GL_TRIANGLES;
     this->isEnabled = true;
-    relatedTextureId = 0;
-    dimensions.position = MI_VECTORS_XYZ;
-    dimensions.color = MI_COLORS_RGBA;
-    dimensions.texCoord = MI_TEXCOORD_ST;
-    dimensions.texture = GL_TEXTURE_2D;
+    this->textureType = GL_TEXTURE_2D;
+    this->modelDrawType = GL_TRIANGLES;
+    this->relatedShaderId = 0;
+    this->relatedTextureId = 0;
+    this->vaoId = 0;
+    this->vboId = 0;
+    this->indicesSize = 0;
+    this->verticesSize = 0;
 }
 
 glm::mat4 Entity::getMatrix() {

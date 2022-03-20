@@ -8,19 +8,18 @@
 
 #pragma once
 
-#include "GLObject.hpp"
-#include "../World/Entity.hpp"
+#include "Core.hpp"
 
-class VBO : GLObject {
+class VBO {
     
 private:
     
 public:
-    VBO();
     
-    virtual void bind(GLuint id) override;
-    virtual void unbind() override;
-    virtual void deleteObject(GLuint id) override;
-    
-    GLuint generateNewVBO(Entity* entity);
+    static void bind(GLuint id);
+    static void unbind();
+    static void deleteObject(GLuint id);
+    static GLuint generateNewVBO(std::vector<float> vertices,
+                                 std::vector<float> normals,
+                                 std::vector<float> texCoords);
 };

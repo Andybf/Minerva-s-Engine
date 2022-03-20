@@ -19,26 +19,19 @@ private:
 public:
 
     Entity();
-
-    std::vector<float> model;
-    std::vector<uint> indices;
-    std::vector<float> colors;
-    std::vector<float> textureCoords;
-
-    ushort relatedTextureId;
-    ushort relatedShaderId;
-    uchar modelType;
+    
     bool isEnabled;
-    struct Dimensions {
-        byte position;
-        byte color;
-        byte texCoord;
-        uint texture;
-    } dimensions;
+    
+    ushort textureType;
+    ushort modelDrawType;
 
-    ushort vaoId;
-    ushort vboId;
-    ushort eboId;
+    uint relatedShaderId;
+    uint relatedTextureId;
+    uint vaoId;
+    uint vboId;
+    
+    uint indicesSize;
+    uint verticesSize;
 
     glm::mat4 getMatrix();
 

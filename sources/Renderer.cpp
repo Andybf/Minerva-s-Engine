@@ -11,10 +11,6 @@
 Renderer::Renderer() {
     glEnable( GL_DEPTH_TEST );
     glDepthFunc( GL_LEQUAL );
-        
-    this->vbo = new VBO();
-    this->vao = new VAO();
-    this->ebo = new EBO();
     this->frameCount = 0;
     this->saveContextInformation();
 }
@@ -43,33 +39,17 @@ void Renderer::InitializeRendering() {
 }
 
 void Renderer::drawElementsInstanced(Entity* model, uint count) {
-    MI_TEST(glDrawElementsInstanced(model->modelType, (uint)model->indices.size(), GL_UNSIGNED_INT, 0, count));
+    MI_TEST(glDrawElementsInstanced(model->modelDrawType, model->indicesSize, GL_UNSIGNED_INT, 0, count));
 }
 void Renderer::drawElements(Entity* model) {
-    MI_TEST(glDrawElements(model->modelType, (uint)model->indices.size(), GL_UNSIGNED_INT, 0));
+    MI_TEST(glDrawElements(model->modelDrawType, model->indicesSize, GL_UNSIGNED_INT, 0));
 }
 void Renderer::drawArrays(Entity* model) {
-    MI_TEST(glDrawArrays(model->modelType, MI_STARTING_INDEX, (float)model->model.size()/3));
+    MI_TEST(glDrawArrays(model->modelDrawType, MI_STARTING_INDEX, (float)model->verticesSize/3));
 }
 
 void Renderer::bindVertexArray(uint vertexArrayId){
     MI_TEST(glBindVertexArray(vertexArrayId));
-}
-void Renderer::storeEntityOnGPU(Entity* entity) {
-    ulong modelsSize = entity->model.size()*sizeof(GLfloat);
-    ulong colorsSize = modelsSize + entity->colors.size()*sizeof(GLfloat);
-    
-    entity->vboId = this->vbo->generateNewVBO(entity);
-    entity->vaoId = this->vao->generateNewVAO();
-    this->vao->bind(entity->vaoId);
-    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->relatedShaderId, "position"), entity->dimensions.position, 0);
-    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->relatedShaderId, "color"), entity->dimensions.color, modelsSize);
-    this->vao->linkAttribute(entity->vaoId, glGetAttribLocation(entity->relatedShaderId, "texCoord"), entity->dimensions.texCoord, colorsSize);
-    entity->eboId = this->ebo->generateNewEBO(entity);
-    
-    this->vao->unbind();
-    this->ebo->unbind();
-    this->vbo->unbind();
 }
 
 void Renderer::resetFrameCount() {

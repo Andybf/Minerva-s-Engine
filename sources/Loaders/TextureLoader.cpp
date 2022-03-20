@@ -39,7 +39,7 @@ GLuint TextureLoader::loadCubemap(std::vector<cchar*> textureFaces) {
     TextureLoader::generateTextureId(&entityTextureId, GL_TEXTURE_CUBE_MAP);
     char* textureFilePath = (char*)calloc(sizeof(char),256);
     TextureLoader::Image* image = (TextureLoader::Image*) malloc(sizeof(TextureLoader::Image));
-    
+    stbi_set_flip_vertically_on_load(false);
     for (byte x=0; x<textureFaces.size(); x++) {
         FileLoader::generatePathForFile(textureFilePath, "textures", textureFaces[x]);
         image->data = stbi_load(textureFilePath, &image->width, &image->height, &image->colorChannels, 0);

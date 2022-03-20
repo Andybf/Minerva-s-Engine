@@ -107,6 +107,7 @@ typedef char byte;
 
 #define MI_TEXCOORD_ST 2
 #define MI_TEXCOORD_STR 3
+#define MI_NORMALS_XYZ 3
 #define MI_VECTORS_XY 2
 #define MI_VECTORS_XYZ 3
 #define MI_VECTORS_XYZW 4
@@ -120,6 +121,10 @@ typedef char byte;
 #define MI_SIZE_SHORT 2
 #define MI_SIZE_INT 4
 #define MI_SIZE_FLOAT 8
+
+#define BUFFER_OFFSET(i) ((char *)NULL + (i))
+#define MI_STRIDE 0
+#define MI_VAO_TO_GENERATE 1
 
 #ifdef MI_DEBUG
     #define MI_TEST(glFunctionCall)\

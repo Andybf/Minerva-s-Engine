@@ -8,10 +8,6 @@
 
 #include "VBO.hpp"
 
-VBO::VBO() {
-    
-}
-
 void VBO::bind(GLuint id) {
     glBindBuffer(GL_ARRAY_BUFFER, id);
 }
@@ -24,18 +20,21 @@ void VBO::deleteObject(GLuint id) {
     glDeleteBuffers(1, &id);
 }
 
-GLuint VBO::generateNewVBO(Entity* entity) {
-    ulong modelsSize = entity->model.size()*sizeof(GLfloat);
-    ulong colorsSize = entity->colors.size()*sizeof(GLfloat);
-    ulong texCrdSize = entity->textureCoords.size()*sizeof(GLfloat);
+GLuint VBO::generateNewVBO(std::vector<float> vertices,
+                           std::vector<float> normals,
+                           std::vector<float> texCoords)
+    {
+    ulong modelsSize = vertices.size()*sizeof(GLfloat);
+    ulong normalsSize = normals.size()*sizeof(GLfloat);
+    ulong texCrdSize = texCoords.size()*sizeof(GLfloat);
     GLuint vertexBufferObjectId = 0;
     
     glGenBuffers(1, &vertexBufferObjectId);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectId);
-    glBufferData(GL_ARRAY_BUFFER, modelsSize+colorsSize+texCrdSize, NULL, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, modelsSize+normalsSize+texCrdSize, NULL, GL_DYNAMIC_DRAW);
     
-    glBufferSubData(GL_ARRAY_BUFFER, 0, modelsSize, entity->model.data());
-    glBufferSubData(GL_ARRAY_BUFFER, modelsSize, colorsSize, entity->colors.data());
-    glBufferSubData(GL_ARRAY_BUFFER, modelsSize+colorsSize, texCrdSize, entity->textureCoords.data());
+    glBufferSubData(GL_ARRAY_BUFFER, 0, modelsSize, vertices.data());
+    glBufferSubData(GL_ARRAY_BUFFER, modelsSize, normalsSize, normals.data());
+    glBufferSubData(GL_ARRAY_BUFFER, modelsSize+normalsSize, texCrdSize, texCoords.data());
     return vertexBufferObjectId;
 }

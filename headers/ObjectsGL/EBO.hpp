@@ -8,19 +8,16 @@
 
 #pragma once
 
-#include "GLObject.hpp"
-#include "../World/Entity.hpp"
+#include "Core.hpp"
 
-class EBO : GLObject {
+class EBO {
     
 private:
     
 public:
-    EBO();
     
-    virtual void bind(GLuint id) override;
-    virtual void unbind() override;
-    virtual void deleteObject(GLuint id) override;
-    
-    GLuint generateNewEBO(Entity* entity);
+    static void bind(GLuint id);
+    static void unbind();
+    static void deleteObject(GLuint id);
+    static GLuint generateNewEBO(std::vector<uint>* indices);
 };

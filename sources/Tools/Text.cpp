@@ -17,28 +17,7 @@ Text::Text(uint fontMapTextureId, uint textShaderId) {
     this->setScale(glm::vec3(characterScale));
     this->relatedTextureId = fontMapTextureId;
     this->relatedShaderId = textShaderId;
-    this->model = std::vector<float> {
-        0.0f,  0.0f, 0.0f,
-        1.0f,  0.0f, 0.0f,
-        1.0f,  1.0f, 0.0f,
-        0.0f,  1.0f, 0.0f,
-    };
-    this->colors = std::vector<float> {
-        1.0f, 1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f, 1.0f
-    };
-    this->textureCoords = std::vector<float> {
-        0.0000f, 0.0000f, // 0 0
-        0.0625f, 0.0000f, // 1 0
-        0.0625f, 0.0625f, // 1 1
-        0.0000f, 0.0625f  // 0 1
-    };
-    this->indices = std::vector<uint> {
-        0, 1, 3,
-        1, 2, 3
-    };
+    this->string32bit = (int*) calloc(sizeof(int), 1);
 }
 
 void Text::countStringSize(uchar* string) {
