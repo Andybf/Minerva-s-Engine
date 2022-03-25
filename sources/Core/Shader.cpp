@@ -10,7 +10,7 @@
 
 uint Shader::activeShaderId = 0;
 
-void Shader::activateProgramWithId(uint shaderId) {
+void Shader::setActiveProgram(uint shaderId) {
     glUseProgram(shaderId);
     Shader::activeShaderId = shaderId;
 }
@@ -20,14 +20,14 @@ uint Shader::getActiveShaderId(){
 }
 
 void Shader::setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection) {
-    MI_TEST(glBindVertexArray(entity->vaoId));
+    MI_TEST(glBindVertexArray(entity->mesh->vaoId));
     Shader::setUniformMatrix("modelMatrix", entity->getMatrix());
     Shader::setUniformMatrix("viewMatrix", camera);
     Shader::setUniformMatrix("projectionMatrix", projection);
 }
 
 void Shader::setUniformModelProjection(Entity* entity, glm::mat4 projection) {
-    MI_TEST(glBindVertexArray(entity->vaoId));
+    MI_TEST(glBindVertexArray(entity->mesh->vaoId));
     Shader::setUniformMatrix("modelMatrix", entity->getMatrix());
     Shader::setUniformMatrix("projectionMatrix", projection);
 }

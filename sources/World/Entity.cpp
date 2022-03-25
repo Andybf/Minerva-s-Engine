@@ -15,10 +15,6 @@ Entity::Entity() {
     this->modelDrawType = GL_TRIANGLES;
     this->relatedShaderId = 0;
     this->relatedTextureId = 0;
-    this->vaoId = 0;
-    this->vboId = 0;
-    this->indicesSize = 0;
-    this->verticesSize = 0;
 }
 
 glm::mat4 Entity::getMatrix() {

@@ -9,7 +9,7 @@
 #pragma once
 
 #include "Core.hpp"
-#include "Inputs/Inputs.hpp"
+#include "../Inputs/Inputs.hpp"
 
 
 class Window {

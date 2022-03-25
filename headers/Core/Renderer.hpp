@@ -10,7 +10,7 @@
 
 #include "Core.hpp"
 #include "Window.hpp"
-#include "World/Entity.hpp"
+#include "../World/Entity.hpp"
 
 
 class Renderer : virtual public Window {
@@ -40,8 +40,6 @@ public:
     void drawElementsInstanced(Entity* model, uint count);
     void drawElements(Entity* model);
     void drawArrays(Entity* model);
-    
-    void bindVertexArray(uint vertexArrayId);
     
     int getFrameCount();
     float getFramesPerSecond();

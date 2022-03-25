@@ -9,7 +9,7 @@
 #pragma once
 
 #include "../Core.hpp"
-#include "../Window.hpp"
+#include "../Core/Window.hpp"
 
 class Keyboard : public virtual Inputs {
     

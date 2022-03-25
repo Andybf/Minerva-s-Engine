@@ -489,6 +489,7 @@
 		717DED2E27BF070500AE2351 /* ShaderLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
 		717DED3227BF0A8400AE2351 /* FileLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLoader.cpp; sourceTree = "<group>"; };
 		717DED3327BF0A8400AE2351 /* FileLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileLoader.hpp; sourceTree = "<group>"; };
+		718B07A127EE53F800538F51 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
 		719F092427DF825E00B29961 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
 		719F092527DF825E00B29961 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		71A1589A27D6A05500F47398 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
@@ -1063,13 +1064,10 @@
 			children = (
 				712C268227C3400600CEFB95 /* Tools */,
 				71AF92C427C0471D00209F97 /* World */,
-				71AF92A027BFCD9700209F97 /* ObjectsGL */,
+				71AF92A027BFCD9700209F97 /* Core */,
 				71AF929F27BFCD9100209F97 /* Inputs */,
 				717DED3127BF070900AE2351 /* Loaders */,
 				71135B8B27BED9D700B3F522 /* Core.hpp */,
-				71135B8A27BED9D700B3F522 /* Window.hpp */,
-				71135CBF27BEDA5E00B3F522 /* Renderer.hpp */,
-				71135CC327BEF66100B3F522 /* Shader.hpp */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -1079,12 +1077,9 @@
 			children = (
 				712C267D27C33FAD00CEFB95 /* Tools */,
 				71AF92C327C0470B00209F97 /* World */,
-				71AF929E27BFCBF600209F97 /* ObjectsGL */,
+				71AF929E27BFCBF600209F97 /* Core */,
 				717DED3627BF210C00AE2351 /* Input */,
 				717DED2C27BF06ED00AE2351 /* Loaders */,
-				71135B8F27BED9D700B3F522 /* Window.cpp */,
-				71135CBE27BEDA5E00B3F522 /* Renderer.cpp */,
-				71135CC227BEF66100B3F522 /* Shader.cpp */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -1139,14 +1134,17 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		71AF929E27BFCBF600209F97 /* ObjectsGL */ = {
+		71AF929E27BFCBF600209F97 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				71135B8F27BED9D700B3F522 /* Window.cpp */,
+				71135CBE27BEDA5E00B3F522 /* Renderer.cpp */,
+				71135CC227BEF66100B3F522 /* Shader.cpp */,
 				71AF92D127C047E500209F97 /* VAO.cpp */,
 				71AF92CD27C047C700209F97 /* VBO.cpp */,
 				71AF92D527C047FC00209F97 /* EBO.cpp */,
 			);
-			path = ObjectsGL;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		71AF929F27BFCD9100209F97 /* Inputs */ = {
@@ -1160,14 +1158,18 @@
 			path = Inputs;
 			sourceTree = "<group>";
 		};
-		71AF92A027BFCD9700209F97 /* ObjectsGL */ = {
+		71AF92A027BFCD9700209F97 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				71135B8A27BED9D700B3F522 /* Window.hpp */,
+				71135CBF27BEDA5E00B3F522 /* Renderer.hpp */,
+				71135CC327BEF66100B3F522 /* Shader.hpp */,
 				71AF92D227C047E500209F97 /* VAO.hpp */,
 				71AF92CE27C047C700209F97 /* VBO.hpp */,
 				71AF92D627C047FC00209F97 /* EBO.hpp */,
+				718B07A127EE53F800538F51 /* Mesh.h */,
 			);
-			path = ObjectsGL;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		71AF92C327C0470B00209F97 /* World */ = {

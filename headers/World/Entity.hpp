@@ -9,6 +9,7 @@
 #pragma once
 
 #include "Core.hpp"
+#include "../Core/Mesh.h"
 
 class Entity {
         
@@ -24,14 +25,9 @@ public:
     
     ushort textureType;
     ushort modelDrawType;
-
-    uint relatedShaderId;
-    uint relatedTextureId;
-    uint vaoId;
-    uint vboId;
-    
-    uint indicesSize;
-    uint verticesSize;
+    ushort relatedShaderId;
+    ushort relatedTextureId;
+    Mesh* mesh;
 
     glm::mat4 getMatrix();
 

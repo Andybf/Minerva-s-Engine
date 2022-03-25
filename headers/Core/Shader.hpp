@@ -9,7 +9,7 @@
 #pragma once
 
 #include "Core.hpp"
-#include "World/Entity.hpp"
+#include "../World/Entity.hpp"
 
 class Shader {
     
@@ -20,7 +20,7 @@ private:
     
 public:
     
-    static void activateProgramWithId(uint shaderId);
+    static void setActiveProgram(uint shaderId);
     static uint getActiveShaderId();
     
     static void setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection);

@@ -9,8 +9,8 @@
 #include "Renderer.hpp"
 
 Renderer::Renderer() {
-    glEnable( GL_DEPTH_TEST );
-    glDepthFunc( GL_LEQUAL );
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
     this->frameCount = 0;
     this->saveContextInformation();
 }
@@ -39,17 +39,13 @@ void Renderer::InitializeRendering() {
 }
 
 void Renderer::drawElementsInstanced(Entity* model, uint count) {
-    MI_TEST(glDrawElementsInstanced(model->modelDrawType, model->indicesSize, GL_UNSIGNED_INT, 0, count));
+    MI_TEST(glDrawElementsInstanced(model->modelDrawType, model->mesh->indicesSize, GL_UNSIGNED_INT, 0, count));
 }
 void Renderer::drawElements(Entity* model) {
-    MI_TEST(glDrawElements(model->modelDrawType, model->indicesSize, GL_UNSIGNED_INT, 0));
+    MI_TEST(glDrawElements(model->modelDrawType, model->mesh->indicesSize, GL_UNSIGNED_INT, 0));
 }
 void Renderer::drawArrays(Entity* model) {
-    MI_TEST(glDrawArrays(model->modelDrawType, MI_STARTING_INDEX, (float)model->verticesSize/3));
-}
-
-void Renderer::bindVertexArray(uint vertexArrayId){
-    MI_TEST(glBindVertexArray(vertexArrayId));
+    MI_TEST(glDrawArrays(model->modelDrawType, MI_STARTING_INDEX, (float)model->mesh->verticesSize/3));
 }
 
 void Renderer::resetFrameCount() {

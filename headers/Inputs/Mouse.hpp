@@ -9,7 +9,7 @@
 #pragma once
 
 #include "../Core.hpp"
-#include "../Window.hpp"
+#include "../Core/Window.hpp"
 
 class Mouse : public virtual Inputs {
     
