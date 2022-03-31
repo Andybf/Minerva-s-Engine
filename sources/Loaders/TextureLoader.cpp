@@ -17,10 +17,10 @@ GLuint TextureLoader::load2d(cchar* textureFileName) {
     char* textureFilePath = (char*)calloc(sizeof(char),256);
     FileLoader::generatePathForFile(textureFilePath, "textures",textureFileName);
     
-    TextureLoader::Image* image = (TextureLoader::Image*) malloc(sizeof(TextureLoader::Image));
+    TextureLoader::Image* image = (TextureLoader::Image*) calloc(sizeof(TextureLoader::Image),1);
     stbi_set_flip_vertically_on_load(true);
     image->data = stbi_load(textureFilePath, &image->width, &image->height, &image->colorChannels, 0);
-    TextureLoader::checkTextureFileIsFound(image, textureFileName);
+    TextureLoader::checkTextureFileIsFound(image, textureFilePath);
     
     TextureLoader::generateTextureId(&entityTextureId, GL_TEXTURE_2D);
     TextureLoader::setTextureParameters(GL_TEXTURE_2D);
@@ -67,9 +67,9 @@ void TextureLoader::setTextureParameters(int texType) {
     MI_TEST(glTexParameteri(texType, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE));
 }
 
-void TextureLoader::checkTextureFileIsFound(Image* image, cchar* textureFileName) {
+void TextureLoader::checkTextureFileIsFound(Image* image, cchar* textureFilePath) {
     if (image->data == NULL) {
-        printf("[MI_ERROR] The requested texture file was not found by the texture loader: %s\n",textureFileName);
+        printf("[MI_TXL_ERROR] The requested texture file was not found. Path:\n %s\n",textureFilePath);
         exit(1);
     }
 }

@@ -14,17 +14,14 @@
 #include "../Core/VAO.hpp"
 #include "../Core/EBO.hpp"
 #include "../Core/Mesh.h"
+#include "./ModelReaders/StanfordObj.hpp"
+#include "../Loaders/ModelReaders/ModelData.hpp"
 
 class ModelLoader {
     
 private:
-    
-    static void moveFilePointerToBefore(FILE* file, char* substring);
-    static void readVertex(FILE* file, cchar* VertexTypeName, std::vector<float>* vertexList);
-    static void readIndices(FILE* file, std::vector<uint>* indicesList);
-    
+        
 public:
-    
     static Mesh* load(cchar* modelFileName, uint shaderId);
 };
 

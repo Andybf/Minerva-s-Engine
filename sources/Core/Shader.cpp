@@ -49,3 +49,6 @@ void Shader::setUniformFloat(cchar* name, float value) {
 void Shader::setUniformVec2Array(cchar* name, const float* value, int size) {
     MI_TEST(glUniform2fv(glGetUniformLocation(Shader::activeShaderId,name), size, value));
 }
+void Shader::setUniformVec3(cchar* name, glm::vec3 value) {
+    MI_TEST(glUniform3f(glGetUniformLocation(Shader::activeShaderId,name),value.x,value.y,value.z));
+}

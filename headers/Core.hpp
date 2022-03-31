@@ -105,9 +105,14 @@ typedef char byte;
 #define KEY_Y GLFW_KEY_Y
 #define KEY_Z GLFW_KEY_Z
 
+#define KEY_RIGHT GLFW_KEY_RIGHT
+#define KEY_LEFT GLFW_KEY_LEFT
+#define KEY_DOWN GLFW_KEY_DOWN
+#define KEY_UP GLFW_KEY_UP
+
 #define MI_TEXCOORD_ST 2
 #define MI_TEXCOORD_STR 3
-#define MI_NORMALS_XYZ 3
+#define MI_NORMALS_IJK 3
 #define MI_VECTORS_XY 2
 #define MI_VECTORS_XYZ 3
 #define MI_VECTORS_XYZW 4

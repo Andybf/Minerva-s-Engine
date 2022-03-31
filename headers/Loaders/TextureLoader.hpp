@@ -26,7 +26,7 @@ private:
     
     static void generateTextureId(GLuint* textureId, int texType);
     static void setTextureParameters(int texType);
-    static void checkTextureFileIsFound(Image* image, cchar* textureFileName);
+    static void checkTextureFileIsFound(Image* image, cchar* textureFilePath);
     
 public:
     static GLuint load2d(cchar* textureFilePath);

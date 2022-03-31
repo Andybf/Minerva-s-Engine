@@ -30,5 +30,6 @@ public:
     static void setUniformIntArray(cchar* name, int* intArray, int size);
     static void setUniformFloat(cchar* name, float value);
     static void setUniformVec2Array(cchar* name, const float* value, int size);
+    static void setUniformVec3(cchar* name, glm::vec3 value);
     
 };
